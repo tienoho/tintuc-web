@@ -57,7 +57,7 @@ public class resizeImages {
             if (listOfFiles[i].isFile()) {
                 String name = searchName(listOfFiles[i].getName());
                 String extend = searchExtend(listOfFiles[i].getName());
-                String pathIO = path + "\\" + listOfFiles[i].getName();
+                String pathIO = path + "/" + listOfFiles[i].getName();
                 if (!checkImg(listOfFiles, name)) {
                     int check = 0;
                     for (ImageWH imageWH : imageWHList()) {
