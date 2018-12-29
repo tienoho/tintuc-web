@@ -17,7 +17,7 @@ public class CategoryDao {
 
     public ArrayList<Category> getListCategory() throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM CATEGORY";
+        String sql = "SELECT * FROM category";
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
         ArrayList<Category> list = new ArrayList<Category>();
@@ -35,7 +35,7 @@ public class CategoryDao {
     }
     public ArrayList<Category> getListCategoryParent() throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM CATEGORY where category_parent=0";
+        String sql = "SELECT * FROM category where category_parent=0";
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
         ArrayList<Category> list = new ArrayList<Category>();
@@ -53,7 +53,7 @@ public class CategoryDao {
     }
     public ArrayList<Category> getListCategoryChildren(int categoryParent) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM CATEGORY where category_parent="+categoryParent;
+        String sql = "SELECT * FROM category where category_parent="+categoryParent;
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
         ArrayList<Category> list = new ArrayList<Category>();
@@ -71,7 +71,7 @@ public class CategoryDao {
     }
     public Category getCategory(int category_id) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM CATEGORY WHERE category_id="+category_id;
+        String sql = "SELECT * FROM category WHERE category_id="+category_id;
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         ResultSet rs = preparedStatement.executeQuery(sql);
         Category category = null;
@@ -88,7 +88,7 @@ public class CategoryDao {
     // get name category
     public String getCategoryName(String category_slug) {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT category_name FROM CATEGORY WHERE category_slug='" + category_slug + "'";
+        String sql = "SELECT category_name FROM category WHERE category_slug='" + category_slug + "'";
         PreparedStatement preparedStatement;
         String nameCategory="";
         try {
@@ -108,7 +108,7 @@ public class CategoryDao {
     //kiểm tra xem category_slug  đã tồn tại hay chưa
     public boolean checkCategorySlug(String category_slug) {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM CATEGORY WHERE category_slug='" + category_slug + "'";
+        String sql = "SELECT * FROM category WHERE category_slug='" + category_slug + "'";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = connection.prepareStatement(sql);
@@ -128,7 +128,7 @@ public class CategoryDao {
         Connection connection = null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "INSERT INTO CATEGORY(category_name, category_des, category_slug,category_parent) VALUE(?,?,?,?)";
+            String sql = "INSERT INTO category(category_name, category_des, category_slug,category_parent) VALUE(?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, c.getCategoryName());
             ps.setString(2, c.getCategoryDes());
@@ -148,7 +148,7 @@ public class CategoryDao {
         Connection connection = null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "UPDATE CATEGORY set category_name=?, category_des=?, category_slug=?,category_parent=? where category_id=?";
+            String sql = "UPDATE category set category_name=?, category_des=?, category_slug=?,category_parent=? where category_id=?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, c.getCategoryName());
             ps.setString(2, c.getCategoryDes());
@@ -169,7 +169,7 @@ public class CategoryDao {
         Connection connection = null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "DELETE FROM CATEGORY WHERE category_id = ?";
+            String sql = "DELETE FROM category WHERE category_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, category_id);
             int temp = ps.executeUpdate();

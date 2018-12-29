@@ -1,9 +1,0 @@
-{
-  "build": {
-    "type": "maven",
-    "goal": "package"
-  },
-  "deploy": {
-    "goal": "target/Website-tin-tuc.war"
-  }
-}

@@ -1,7 +1,5 @@
 package vn.haui.web.utils;
 
-import org.imgscalr.Scalr;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,7 +12,7 @@ import java.util.ArrayList;
 
 public class resizeImages {
     private String pathUrl = "/upload/images/";
-    private String urlImages = File.separatorChar + "Website-tin-tuc" + File.separatorChar + "upload" + File.separatorChar + "images" + File.separatorChar;
+    private String urlImages = File.separatorChar + "ROOT" + File.separatorChar + "upload" + File.separatorChar + "images" + File.separatorChar;
 
     public static BufferedImage resizeImage(final Image image, int width, int height) {
         final BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);

@@ -23,8 +23,6 @@ public class filterConfig implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-
-
         SettingDao settingDao = new SettingDao();
         ArrayList<Setting> settings = null;
         try {

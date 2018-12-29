@@ -24,6 +24,7 @@ public class DBConnect {
         }
         StackTraceElement[] st = Thread.currentThread().getStackTrace();
         System.out.println("create connection called from " + st[2]);
+        System.out.println("Get connection " + cons);
         return cons;
     }
     public static Connection getConnecttion() {
@@ -42,6 +43,7 @@ public class DBConnect {
         }
         StackTraceElement[] st = Thread.currentThread().getStackTrace();
         System.out.println("create connection called from " + st[2]);
+        System.out.println("Get connection " + cons);
         return cons;
     }
     public static void main(String[] args) throws NamingException, SQLException {
