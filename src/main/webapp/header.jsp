@@ -6,6 +6,7 @@
 <%@ page import="vn.haui.web.model.Social" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.haui.web.command.SocialDao" %>
+<%@ page import="vn.haui.web.utils.SettingConfig" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
@@ -17,6 +18,7 @@
     <link rel="icon" href="<%=WebConstant.getLocalHost()+"/"+WebConstant.getxImagePath_icon()%>">
     <%
         Users users = null;
+        new SettingConfig().getSettingStart();
         if (session.getAttribute("user") != null) {
             users = (Users) session.getAttribute("user");
         }

@@ -28,7 +28,7 @@
 %>
 <script>
     function delete_commnet_ajax(commnet_ID) {
-        $.post('<%=WebConstant.getLocalHost()%>/ManagerCommentServlet', {'comment-id': Post_ID,'command': "delete"},function (data) {
+        $.post('<%=WebConstant.getLocalHost()%>/ManagerCommentServlet', {'comment-id': commnet_ID,'command': "delete"},function (data) {
             $("#myModalLabel").html(data);
         });
         //xóa thẻ sau 2 giây

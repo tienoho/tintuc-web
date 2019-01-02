@@ -113,7 +113,7 @@ public class resizeImages {
         return "jpg";
     }
 
-    public String getPath() throws UnsupportedEncodingException {
+    public String getPathu() throws UnsupportedEncodingException {
         String path = this.getClass().getClassLoader().getResource("").getPath();
         String fullPath = URLDecoder.decode(path, "UTF-8");
         // String pathArr[] = fullPath.split("/upload/");

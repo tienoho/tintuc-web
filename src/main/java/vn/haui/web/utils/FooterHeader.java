@@ -9,7 +9,6 @@ import java.util.List;
 
 public class FooterHeader {
     public void getFooter() throws SQLException {
-
         SettingDao settingDao = new SettingDao();
         List<Setting> settings = settingDao.getTable("option_footer");
         if (settings != null) {

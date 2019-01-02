@@ -3135,6 +3135,18 @@ a img.aligncenter {
     background: #e6422e;
 }
 
+.social-follow .tumblr {
+    background: #002205;
+}
+
+.social-follow .pinterest {
+    background: #e0003f;
+}
+
+.social-follow .google-plus {
+    background: #e6422e;
+}
+
 .social-follow .twitter {
     background: #40aaea;
 }

@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ email</label>
-                                    <input class="form-control" name="admin_email">
+                                    <input class="form-control" name="admin_email" value="<%=WebConstant.getAdmin_email()%>">
                                     <p class="help-block">Địa chỉ này được sử dụng cho mục đích quản trị.</p>
                                 </div>
                                 <div class="form-group">

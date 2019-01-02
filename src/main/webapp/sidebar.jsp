@@ -5,6 +5,8 @@
 <%@ page import="vn.haui.web.command.UsersDao" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.haui.web.utils.tool" %>
+<%@ page import="vn.haui.web.model.Social" %>
+<%@ page import="vn.haui.web.command.SocialDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
@@ -12,6 +14,7 @@
 <%
     PostDao postDao=new PostDao();
     UsersDao usersDao=new UsersDao();
+    SocialDao socialDao=new SocialDao();
 %>
 
 <aside class="col-4 sidebar" data-sticky="1">
@@ -55,36 +58,18 @@
             <li id="bunyad-social-2" class="widget widget-social">
                 <ul class="social-follow" itemscope itemtype="http://schema.org/Organization">
                     <link itemprop="url" href="<%=WebConstant.getLocalHost()%>">
+                    <%for (Social s:socialDao.getListSocial()){
+                    String classSocial=s.getSocial_icon().replace("fa-","");
+                    %>
                     <li class="service">
-                        <a href="https://facebook.com/" class="service-link facebook cf"
+                        <a href="<%=s.getSocial_url()%>" class="service-link <%=classSocial%> cf"
                            target="_blank" itemprop="sameAs">
-                            <i class="icon fa fa-facebook-square"></i>
-                            <span class="label">Like on Facebook</span>
+                            <i class="icon fa <%=s.getSocial_icon()%>"></i>
+                            <span class="label"><%=s.getSocial_title()%></span>
                             <span class="count">970</span>
                         </a>
                     </li>
-                    <li class="service">
-                        <a href="https://twitter.com/" class="service-link twitter cf" target="_blank"
-                           itemprop="sameAs">
-                            <i class="icon fa fa-twitter"></i>
-                            <span class="label">Follow on Twitter</span>
-                            <span class="count">65.7K</span>
-                        </a>
-                    </li>
-                    <li class="service">
-                        <a href="https://plus.google.com/" class="service-link gplus cf"
-                           target="_blank" itemprop="sameAs">
-                            <i class="icon fa fa-google-plus"></i>
-                            <span class="label">Follow on Google+</span>
-                        </a>
-                    </li>
-                    <li class="service">
-                        <a href="https://instagram.com/" class="service-link instagram cf"
-                           target="_blank" itemprop="sameAs">
-                            <i class="icon fa fa-instagram"></i>
-                            <span class="label">Follow on Instagram</span>
-                        </a>
-                    </li>
+                    <%}%>
                 </ul>
             </li>
             <li id="bunyad-blocks-widget-2" class="widget page-blocks">

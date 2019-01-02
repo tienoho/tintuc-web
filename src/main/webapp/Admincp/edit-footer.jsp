@@ -32,7 +32,7 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        <form role="form" action="<%=WebConstant.getLocalHost()%>/" method="post">
+        <form role="form" action="<%=WebConstant.getLocalHost()%>/ManagerFooterServlet" method="post">
             <div class="col-lg-9">
                 <div class="form-group">
                     <label>Khẩu hiệu của website</label>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="form-group">
                     <label>Hiển thị số bài viết</label>
-                    <input class="form-control" type="number" name="post_home"
+                    <input class="form-control" type="number" name="post_number"
                            value="<%=WebFooter.getCategory_number()%>">
                     <p class="help-block">Số bài viết xuất hiện ở trang chủ.</p>
                 </div>
@@ -148,7 +148,7 @@
         } else {
             var urlImage = $('#xImagePath').val();
             var htmlll='<div class="thumb">' +
-                '<img height= "150px" width= "150px" src="<%=WebConstant.getLocalHost()%>' + urlImage + '" />' +
+                '<img src="<%=WebConstant.getLocalHost()%>' + urlImage + '" />' +
                 '</div>';
             document.getElementById('thumbnails').innerHTML+=htmlll;
             document.getElementById('preview').style.display = "";

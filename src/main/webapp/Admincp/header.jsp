@@ -1,5 +1,6 @@
 <%@ page import="vn.haui.web.common.WebConstant" %>
-<%@ page import="vn.haui.web.model.Users" %><%--
+<%@ page import="vn.haui.web.model.Users" %>
+<%@ page import="vn.haui.web.utils.SettingConfig" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 28/11/2018
@@ -16,7 +17,7 @@
     {
         users=(Users)session.getAttribute("user");
     }
-
+    new SettingConfig().getSettingStart();
 %>
 <!DOCTYPE html>
 <html lang="vi">

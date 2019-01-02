@@ -21,7 +21,15 @@ public class WebConstant {
     public static String xImagePath_logo_mobile = "/images/sm-logo-mobile.png";
     public static String banner_header = "/images/sm-728x90.jpg";
     public static String url_banner_header = "";
+    public static String admin_email = "";
 
+    public static String getAdmin_email() {
+        return admin_email;
+    }
+
+    public static void setAdmin_email(String admin_email) {
+        WebConstant.admin_email = admin_email;
+    }
 
     public static String getUrl_banner_header() {
         return url_banner_header;

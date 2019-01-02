@@ -1,31 +1,15 @@
-package vn.haui.web.filter;
+package vn.haui.web.utils;
 
 import vn.haui.web.command.SettingDao;
 import vn.haui.web.common.WebConstant;
-import vn.haui.web.model.Setting;
 
-import javax.servlet.*;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class filterConfig implements Filter {
-    @Override
-    public void init(FilterConfig fConfig) throws ServletException {
-        System.out.println("Config init!");
-    }
-
-    @Override
-    public void destroy() {
-        System.out.println("Config Filter destroy!");
-    }
-
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-            throws IOException, ServletException {
+public class SettingConfig {
+    public void getSettingStart() throws SQLException {
         SettingDao settingDao = new SettingDao();
-        WebConstant webConstant=new WebConstant();
-        ArrayList<Setting> settings = null;
+        ArrayList<vn.haui.web.model.Setting> settings = null;
         try {
             settings = settingDao.getSetting();
 
@@ -33,7 +17,7 @@ public class filterConfig implements Filter {
             e.printStackTrace();
         }
         if (settings != null) {
-            for (Setting s : settings) {
+            for (vn.haui.web.model.Setting s : settings) {
                 switch (s.getOptionName()) {
                     case "siteurl":
                         WebConstant.setLocalHost(s.getOptionValue());
@@ -89,7 +73,5 @@ public class filterConfig implements Filter {
                 }
             }
         }
-        // Cho phép request được đi tiếp. (Vượt qua Filter này).
-        chain.doFilter(request, response);
     }
 }

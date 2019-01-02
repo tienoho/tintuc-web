@@ -7,6 +7,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vn.haui.web.utils.genJson" %>
 <%@ page import="vn.haui.web.command.UsersDao" %>
+<%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
@@ -14,7 +15,7 @@
     PostDao postDao = new PostDao();
     CategoryDao categoryDao = new CategoryDao();
     ArrayList<Category> categoriesParent = categoryDao.getListCategoryParent();
-    ArrayList<Post> postsNew = postDao.getListAllPostNew(8);
+    ArrayList<Post> postsNew = postDao.getListAllPostNew(WebConstant.getPostNumberHome());
     UsersDao usersDao=new UsersDao();
 %>
 <script>
@@ -210,8 +211,15 @@
                 </section>
                 <section class="block-wrap blog" data-id="2">
                     <div class="block-head cat-text-12">
-                        <%Category categorySub=categoryDao.getCategory(WebConstant.getCategorySubOne());%>
-                        <h3 class="heading"><a href="<%=WebConstant.getLocalHost()+"/Category/"+categorySub.getCategorySlug()%>"><%=categorySub.getCategoryName()%></a></h3>
+                        <%
+                            Category categorySubContent= null;
+                            try {
+                                categorySubContent = categoryDao.getCategory(WebConstant.getCategorySubOne());
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                        %>
+                        <h3 class="heading"><a href="<%=WebConstant.getLocalHost()+"/Category/"+categorySubContent.getCategorySlug()%>"><%=categorySubContent.getCategoryName()%></a></h3>
                         <ul class="subcats filters">
                             <li><a href="#" data-id="0" class="active">Tất cả</a></li>
                             <%for (Category cSub:categoryDao.getListCategoryChildren(WebConstant.getCategorySubOne())){%>
