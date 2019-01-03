@@ -44,7 +44,7 @@ public class PostDao {
     //Get All
     public ArrayList<Post> getListAllPost() throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM post";
+        String sql = "SELECT * FROM post order by post_date desc";
         PreparedStatement st = connection.prepareStatement(sql);
         // st.setInt(1,categoryID);
         ResultSet rs = st.executeQuery(sql);
@@ -68,7 +68,7 @@ public class PostDao {
     //Get All new
     public ArrayList<Post> getListAllPostNew(int maxpost) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM post  order by post_date desc limit 1,"+maxpost;
+        String sql = "SELECT * FROM post  order by post_date desc limit "+maxpost;
         PreparedStatement st = connection.prepareStatement(sql);
         // st.setInt(1,categoryID);
         ResultSet rs = st.executeQuery(sql);

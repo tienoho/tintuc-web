@@ -99,15 +99,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Hiển thị số bài viết có lượt xem nhiều nhất</label>
-                                    <input class="form-control" type="number" name="post_number_view"
+                                    <input class="form-control" type="number" name="post_view_number"
                                            value="<%=WebConstant.getPostView()%>">
                                     <p class="help-block">Số bài viết xuất hiện lượt xem nhiều nhất.</p>
                                 </div>
                                 <div class="form-group">
                                     <label>Chuyên mục đừng bỏ lỡ</label>
-                                    <select class="form-control" id="category_miss" name="category_miss">
+                                    <select class="form-control" id="post_miss_id" name="post_miss_id">
                                         <%for (Category c : categories) {%>
-                                        <option value="<%=c.getCategoryID()%>" <%if (WebConstant.getPostView() == c.getCategoryID()) {%>
+                                        <option value="<%=c.getCategoryID()%>" <%if (WebConstant.getPostMissId() == c.getCategoryID()) {%>
                                                 selected="selected"<%}%>><%=c.getCategoryName()%>
                                         </option>
                                         <%}%>
@@ -117,7 +117,7 @@
                                 <div class="form-group">
                                     <label>Hiển thị số bài viết ở đừng bỏ lỡ</label>
                                     <input class="form-control" type="number" name="post_miss_number"
-                                           value="<%=WebConstant.getPostMissId()%>">
+                                           value="<%=WebConstant.getPostMissNumber()%>">
                                     <p class="help-block">Số bài viết xuất hiện.</p>
                                 </div>
                                 <div class="form-group row">

@@ -80,7 +80,7 @@ public class ManagerPostServlet extends HttpServlet {
                         //save message in session
                         session.setAttribute("result", result);
                     }
-                    OpenUrl();
+                    //OpenUrl();
                     break;
                 case "update":
                     if (postTitle.equals("") || postTitle == null) {
@@ -124,7 +124,7 @@ public class ManagerPostServlet extends HttpServlet {
                         session.setAttribute("result", result);
                         url = WebConstant.getLocalHost()+"/Admincp/edit-post.jsp?post=" + post.getPostID() + "&action=edit";
                     }
-                    OpenUrl();
+                    //OpenUrl();
                     break;
                 case "delete":
                     postDao.delete(Integer.parseInt(request.getParameter("post-ID")));

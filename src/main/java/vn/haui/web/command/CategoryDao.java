@@ -35,7 +35,7 @@ public class CategoryDao {
     }
     public ArrayList<Category> getListCategoryParent() throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM category where category_parent=0";
+        String sql = "SELECT * FROM category where category_parent=0 ";
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
         ArrayList<Category> list = new ArrayList<Category>();
