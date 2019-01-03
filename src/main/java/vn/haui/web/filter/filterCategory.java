@@ -27,6 +27,8 @@ public class filterCategory implements Filter{
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         HttpServletRequest req = (HttpServletRequest) request;
 
         String servletPath = req.getRequestURL().toString();
@@ -45,7 +47,6 @@ public class filterCategory implements Filter{
         if (category != null) {
             HttpSession session = ((HttpServletRequest) request).getSession(false);
             session.setAttribute("head_title", category.getCategoryName());
-
         }
         // Cho phép request được đi tiếp. (Vượt qua Filter này).
         chain.doFilter(request, response);

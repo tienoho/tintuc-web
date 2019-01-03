@@ -23,8 +23,9 @@ public class filterConfig implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         SettingDao settingDao = new SettingDao();
-        WebConstant webConstant=new WebConstant();
         ArrayList<Setting> settings = null;
         try {
             settings = settingDao.getSetting();
@@ -59,7 +60,7 @@ public class filterConfig implements Filter {
                     case "comment":
                         WebConstant.setComment(s.getOptionValue());
                         break;
-                    case "post_number_view":
+                    case "post_view_number":
                         WebConstant.setPostView(Integer.parseInt(s.getOptionValue()));
                         break;
                     case "category_miss":

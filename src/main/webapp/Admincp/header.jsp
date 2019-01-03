@@ -17,7 +17,7 @@
     {
         users=(Users)session.getAttribute("user");
     }
-    new SettingConfig().getSettingStart();
+//    new SettingConfig().getSettingStart();
 %>
 <!DOCTYPE html>
 <html lang="vi">

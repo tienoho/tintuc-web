@@ -126,7 +126,8 @@
                     <div class="block-content">
                         <div class="container cf">
                             <div class="large b-row cf">
-                                <%int demPost = 0;for (Post p : postsNew) {
+                                <%int demPost = 0;
+                                for (Post p : postsNew) {
                                         demPost++;
                                         String extendsImgNew = p.getPostImg();
                                         if (extendsImgNew.contains(".")) {
@@ -160,7 +161,11 @@
                                             </time>
                                         </div>
                                         <div class="excerpt">
-                                            <p><%=tool.html2text(p.getPostContent()).substring(0, 50)%><%=WebConstant.tobeContime%></p>
+                                            <p>
+                                                <%String contenTomTat=tool.html2text(p.getPostContent());
+                                                if(contenTomTat.length()>=50){contenTomTat=contenTomTat.substring(0, 50);}%>
+                                                <%=contenTomTat%><%=WebConstant.tobeContime%>
+                                            </p>
                                         </div>
                                     </article>
                                 </div>
@@ -229,7 +234,7 @@
                     </div>
                     <div class="block-content">
                         <div class="row b-row listing meta-below grid-2">
-                            <%for(Post pSub:postDao.getListProductByPagesInTermChildren(WebConstant.getCategorySubOne(),1,6)){
+                            <%for(Post pSub:postDao.getListProductByPagesInTermChildren(WebConstant.getCategorySubOne(),1,WebConstant.getPostNumberHomeSub())){
                                 String extendsImgNew = pSub.getPostImg();
                                 if (extendsImgNew.contains(".")) {
                                     extendsImgNew = extendsImgNew.substring(extendsImgNew.lastIndexOf("."), extendsImgNew.length());
@@ -255,7 +260,10 @@
                                         <time datetime="<%=pSub.getPostDate()%>" class="meta-item"><%=pSub.getPostDate()%></time>
                                     </div>
                                     <div class="excerpt">
-                                        <p><%=tool.html2text(pSub.getPostContent()).substring(0,50)%></p>
+                                        <p><%String contenTomTat=tool.html2text(pSub.getPostContent());
+                                            if(contenTomTat.length()>=50){contenTomTat=contenTomTat.substring(0, 50);}%>
+                                            <%=contenTomTat%><%=WebConstant.tobeContime%>
+                                        </p>
                                     </div>
                                 </article>
                             </div>
@@ -387,7 +395,11 @@
                                                 href="author/trendy/index.html" title="Posts by <%=usersDao.getName(pSection4.getAuthorID())%>" rel="author"><%=usersDao.getName(pSection4.getAuthorID())%></a></span>
                                             <time datetime="<%=pSection4.getPostDate()%>" class="meta-item"><%=pSection4.getPostDate()%></time>
                                         </div>
-                                        <div class="excerpt"><p><%=tool.html2text(pSection4.getPostContent()).substring(0,200)%></p></div>
+                                        <div class="excerpt"><p>
+                                            <%String contenTomTat=tool.html2text(pSection4.getPostContent());
+                                                if(contenTomTat.length()>=200){contenTomTat=contenTomTat.substring(0, 50);}%>
+                                            <%=contenTomTat%><%=WebConstant.tobeContime%>
+                                        </p></div>
                                     </div>
                                 </div>
                             </article>

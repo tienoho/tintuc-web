@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class SettingDao {
     public ArrayList<Setting> getSetting() throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM option";
+        String sql = "SELECT * FROM option_config";
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
         ArrayList<Setting> list = new ArrayList<Setting>();
@@ -28,7 +28,7 @@ public class SettingDao {
         Connection connection = null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "UPDATE option set option_value=? where option_name=?";
+            String sql = "UPDATE option_config set option_value=? where option_name=?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, s.getOptionValue());
             ps.setString(2, s.getOptionName());

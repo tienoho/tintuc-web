@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/MCategoryServlet")
@@ -24,18 +25,17 @@ public class ManagerCategoryServlet extends HttpServlet {
         String command = request.getParameter("command");
         String categoryName = request.getParameter("category-name");
         String categorySlug = request.getParameter("category-slug");
-
+        HttpSession session = request.getSession(false);
         if (categoryDao.checkCategorySlug(categorySlug) && categorySlug != "") {
             error_slug = "Trường này phải là duy nhất";
-            request.setAttribute("error-slug", error_slug);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-            rd.forward(request, response);
+            session.setAttribute("error-slug", error_slug);
         }
         try {
             switch (command) {
                 case "insert":
                     if (categoryName.equals("") || categoryName == null) {
                         error = "Không thể bỏ trống tên danh mục !";
+                        session.setAttribute("error", error);
                     } else {
                         category = new Category();
                         category.setCategoryName(categoryName);
@@ -48,6 +48,7 @@ public class ManagerCategoryServlet extends HttpServlet {
                         category.setCategoryParent(Integer.parseInt(request.getParameter("category-parent")));
                         categoryDao.insert(category);
                         result = "Thêm thành công";
+                        session.setAttribute("result", result);
                     }
                     break;
                 case "edit":
@@ -60,7 +61,8 @@ public class ManagerCategoryServlet extends HttpServlet {
                     //request.getParameter("category-father");
                     categoryDao.update(category);
                     result = "Cập nhập thành công";
-                    url = "/Admincp/edit-category.jsp";
+                    url = "/Admincp/edit-category.jsp?category="+category.getCategoryID()+"&action=edit";
+                    session.setAttribute("result", result);
                     break;
                 case "delete":
                     categoryDao.delete(Integer.parseInt(request.getParameter("category-ID")));
@@ -72,12 +74,15 @@ public class ManagerCategoryServlet extends HttpServlet {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+            error = "Không thành công";
+            session.setAttribute("error", error);
         }
-        request.setAttribute("error", error);
-        request.setAttribute("result", result);
-        //response.sendRedirect(WebConstant.localHost + "/Admincp/category.jsp");
-        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-        rd.forward(request, response);
+//        request.setAttribute("error", error);
+//        request.setAttribute("result", result);
+//        //response.sendRedirect(WebConstant.localHost + "/Admincp/category.jsp");
+//        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+//        rd.forward(request, response);
+        response.sendRedirect(url);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

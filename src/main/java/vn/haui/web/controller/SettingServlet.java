@@ -16,6 +16,7 @@ import java.sql.SQLException;
 public class SettingServlet extends HttpServlet {
     SettingDao settingDao = new SettingDao();
     Setting setting;
+    HttpSession session = null;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
@@ -39,7 +40,7 @@ public class SettingServlet extends HttpServlet {
         String banner_header = request.getParameter("banner-header");
         String url_banner_header = request.getParameter("url-banner-header");
 
-        HttpSession session = request.getSession(false);
+        session = request.getSession(false);
         if (blogname != null && !blogname.equals("")) {
             setting = new Setting(1, "blogname", blogname);
             setSetting(setting);
@@ -107,7 +108,8 @@ public class SettingServlet extends HttpServlet {
         if (banner_header != null && !banner_header.equals("")) {
             setting = new Setting(1, "banner_header", banner_header);
             setSetting(setting);
-        }if (url_banner_header != null && !url_banner_header.equals("")) {
+        }
+        if (url_banner_header != null && !url_banner_header.equals("")) {
             setting = new Setting(1, "url_banner_header", url_banner_header);
             setSetting(setting);
         }
@@ -123,6 +125,7 @@ public class SettingServlet extends HttpServlet {
     private void setSetting(Setting s) {
         try {
             settingDao.update(s);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

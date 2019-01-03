@@ -18,7 +18,7 @@
     <link rel="icon" href="<%=WebConstant.getLocalHost()+"/"+WebConstant.getxImagePath_icon()%>">
     <%
         Users users = null;
-        new SettingConfig().getSettingStart();
+//        new SettingConfig().getSettingStart();
         if (session.getAttribute("user") != null) {
             users = (Users) session.getAttribute("user");
         }

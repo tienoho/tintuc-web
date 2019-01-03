@@ -20,6 +20,8 @@ public class SinupServlet extends HttpServlet {
     UsersDao usersDao = new UsersDao();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         String url = "";
         String command = request.getParameter("command");
         Users users = null;

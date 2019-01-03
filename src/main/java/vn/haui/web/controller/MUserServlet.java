@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/ManagerUserServlet")
-public class ManagerUserServlet {
+@WebServlet("/MUserServlet")
+public class MUserServlet {
     UsersDao usersDao = new UsersDao();
     Users users = null;
 

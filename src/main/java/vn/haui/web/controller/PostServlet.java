@@ -18,7 +18,8 @@ import java.util.List;
 @WebServlet("/post/*")
 public class PostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         String servletPath = request.getServletPath();
         List<Post> postList=null;
         try {

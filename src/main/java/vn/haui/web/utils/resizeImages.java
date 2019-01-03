@@ -1,5 +1,7 @@
 package vn.haui.web.utils;
 
+import org.apache.commons.lang.time.StopWatch;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -46,6 +48,9 @@ public class resizeImages {
     }
 
     public void AutoResezi(String path) throws IOException {
+        StopWatch stopWatch=new StopWatch();
+        stopWatch.start();
+
         File folder = new File(path);
         File[] listOfFiles = folder.listFiles();
         System.out.println("Total No of Files:" + listOfFiles.length);
@@ -80,6 +85,8 @@ public class resizeImages {
                 }
             }
         }
+        stopWatch.stop();
+        System.out.println("times: "+stopWatch.getTime());
     }
 
     private ArrayList<ImageWH> imageWHList() {
@@ -90,9 +97,13 @@ public class resizeImages {
         imageWHS.add(new ImageWH(214, 140));
         imageWHS.add(new ImageWH(300, 200));
         imageWHS.add(new ImageWH(336, 200));
-        imageWHS.add(new ImageWH(474, 240));
+
+        imageWHS.add(new ImageWH(474, 240));//x
+
         imageWHS.add(new ImageWH(235, 216));
-        imageWHS.add(new ImageWH(600, 460));
+
+        imageWHS.add(new ImageWH(600, 460));//x
+
         imageWHS.add(new ImageWH(666, 1000));
         imageWHS.add(new ImageWH(702, 459));
         imageWHS.add(new ImageWH(1000, 667));

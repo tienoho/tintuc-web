@@ -25,8 +25,7 @@ public class ManagerCommentServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         String url = WebConstant.getLocalHost() + "/Admincp/edit-comment.jsp", error = "", result = "", error_slug = "";
         String command = request.getParameter("command");
-        String urlPath = request.getParameter("urlPath");
-        System.out.println(urlPath);
+
         String commentContent = request.getParameter("comment-content");
 
         HttpSession session = request.getSession(false);
@@ -37,6 +36,8 @@ public class ManagerCommentServlet extends HttpServlet {
                         error = "Không thể bỏ trống!";
                         session.setAttribute("error", error);
                     } else {
+                        String urlPath = request.getParameter("urlPath");
+                        System.out.println(urlPath);
                         comment = new Comment();
                         comment.setComment_content(commentContent);
                         comment.setComment_parent(Integer.parseInt(request.getParameter("comment-parent")));
@@ -60,9 +61,7 @@ public class ManagerCommentServlet extends HttpServlet {
                         comment = new Comment();
                         comment.setComment_id(Integer.parseInt(request.getParameter("comment-id")));
                         comment.setComment_content(commentContent);
-                        comment.setComment_parent(Integer.parseInt(request.getParameter("comment-parent")));
                         comment.setComment_author_email(request.getParameter("comment-email"));
-                        comment.setComment_post_id(Integer.parseInt(request.getParameter("comment_post_id")));
                         comment.setComment_author(request.getParameter("comment-author"));
                         comment.setComment_status(Integer.parseInt(request.getParameter("comment-status")));
                         commentDao.update(comment);

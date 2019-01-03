@@ -42,7 +42,7 @@ public class genJson {
         categories = categoryDao.getListCategoryParent();
         objSubData1 = new HashMap();
         for (Category c : categories) {
-            posts = postDao.getListProductByPagesInTerm(c.getCategoryID(), 1, 8);
+            posts = postDao.getListProductByPagesInTerm(c.getCategoryID(), 1, WebConstant.getPostNumberHome());
             objSubData1.put(c.getCategoryID(), getPostData1(posts, c));
         }
 
@@ -87,12 +87,11 @@ public class genJson {
                 dem = 0;
                 break;
             }
-
         }
         content += "</div><ul class=\"b-row posts-list thumb\">";
         for (Post p : posts) {
             dem++;
-            if (dem > 1) {
+            if (dem > 2) {
                 extendsImgNew = p.getPostImg();
                 if (extendsImgNew.contains(".")) {
                     extendsImgNew = extendsImgNew.substring(extendsImgNew.lastIndexOf("."), extendsImgNew.length());
@@ -125,10 +124,9 @@ public class genJson {
         categories = categoryDao.getListCategoryChildren(categoryId);
         objSubData2 = new HashMap();
         for (Category c : categories) {
-            posts = postDao.getListProductByPagesInTerm(c.getCategoryID(), 1, 6);
+            posts = postDao.getListProductByPagesInTerm(c.getCategoryID(), 1, WebConstant.getPostNumberHomeSub());
             objSubData2.put(c.getCategoryID(), getPostData12(posts, c));
         }
-
     }
 
     public String getPostData12(List<Post> posts, Category c) {
@@ -143,6 +141,12 @@ public class genJson {
             extendsImgNew = p.getPostImg();
             if (extendsImgNew.contains(".")) {
                 extendsImgNew = extendsImgNew.substring(extendsImgNew.lastIndexOf("."), extendsImgNew.length());
+            }
+            String tomtat=tool.html2text(p.getPostContent());
+            if(tomtat.length()>=50){
+                tomtat=tomtat.substring(0, 50);
+            }else {
+                tomtat="";
             }
             content += "<div class=\"column half b-col\">" +
                     "<article class=\"highlights post-"+p.getPostID()+" post type-post status-publish format-standard has-post-thumbnail category-fitness category-lifestyle tag-culture tag-fashion tag-fitness tag-leisure tag-lifestyle\">" +
@@ -163,21 +167,21 @@ public class genJson {
                     " title=\"Posts by Kate Hanson\" rel=\"author\">Kate Hanson</a></span>" +
                     "<time datetime=\""+p.getPostDate()+"\" class=\"meta-item\">"+p.getPostDate()+"</time>" +
                     "</div>" +
-                    "<div class=\"excerpt\"><p>"+ tool.html2text(p.getPostContent()).substring(0, 50) + WebConstant.tobeContime +"</p></div>" +
+                    "<div class=\"excerpt\"><p>"+ tomtat + WebConstant.tobeContime +"</p></div>" +
                     "</article></div>";
         }
         content += "</div></div></section>";
         return content;
     }
 
-    public static void main(String[] args) {
-
-        JSONObject obj1 = new JSONObject();
-        obj1.put("1", "abc");
-        obj1.put("2", "qwe");
-        obj1.put("3", "asd");
-        obj1.put("4", "zxc");
-        System.out.println(obj1.toJSONString());
-        System.out.println(obj1.get("1"));
-    }
+//    public static void main(String[] args) {
+//
+//        JSONObject obj1 = new JSONObject();
+//        obj1.put("1", "abc");
+//        obj1.put("2", "qwe");
+//        obj1.put("3", "asd");
+//        obj1.put("4", "zxc");
+//        System.out.println(obj1.toJSONString());
+//        System.out.println(obj1.get("1"));
+//    }
 }

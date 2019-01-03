@@ -51,8 +51,8 @@
     <div class="wrap">
         <div class="breadcrumbs">
             <span class="location">Bạn đang ở:</span>
-            <span itemscope itemtype=""><a
-                    itemprop="url" href="">
+            <span itemscope itemtype="">
+                <a itemprop="url" href="">
                 <span itemprop="title">Trang chủ</span>
             </a>
             </span>
@@ -68,8 +68,7 @@
             </strong></h2>
             <div class="posts-list listing-alt">
                 <% for (Post p : listPost) {%>
-                <article
-                        class="post-<%=p.getPostID()%> post type-post status-publish format-standard has-post-thumbnail category-business category-lifestyle tag-culture tag-fashion tag-fitness tag-leisure tag-lifestyle">
+                <article class="post-<%=p.getPostID()%> post type-post status-publish format-standard has-post-thumbnail category-business category-lifestyle tag-culture tag-fashion tag-fitness tag-leisure tag-lifestyle">
                     <div class="post-wrap">
                         <a href="<%=WebConstant.getLocalHost()%>/post/<%=p.getPostSlug()%>" class="image-link">
                             <img width="312" height="198"
@@ -92,8 +91,10 @@
                                 </time>
                             </div>
                             <div class="excerpt">
-                                <%--content--%>
-                                <%=tool.html2text(p.getPostContent()).substring(0, 50)%><%=WebConstant.tobeContime%>
+                                <%String content=tool.html2text(p.getPostContent());
+                                    if(content.length()>=50){%>
+                                <%=content.substring(0, 50)%><%=WebConstant.getTobeContime()%>
+                                <%}%>
                             </div>
                         </div>
                     </div>

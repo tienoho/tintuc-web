@@ -16,7 +16,8 @@ import java.sql.SQLException;
 @WebServlet("/SocialSevlet")
 public class SocialSevlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         String urlPath=WebConstant.getLocalHost()+"/Admincp/social.jsp";
         SocialDao socialDao=new SocialDao();
         String[] name = request.getParameterValues("fieldsName[]");

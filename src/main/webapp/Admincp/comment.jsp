@@ -10,7 +10,6 @@
 <%@ page import="vn.haui.web.command.PostDao" %>
 <%@ page import="vn.haui.web.command.UsersDao" %>
 <%@ page import="vn.haui.web.command.CommentDao" %>
-<%@ page import="vn.haui.web.model.Users" %>
 <%@ page import="vn.haui.web.model.Comment" %>
 <%@ page import="vn.haui.web.common.WebConstant" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -21,10 +20,8 @@
     CommentDao commentDao = new CommentDao();
     PostDao postDao=new PostDao();
     UsersDao usersDao=new UsersDao();
-
     ArrayList<Post> posts = postDao.getListAllPost();
     ArrayList<Comment> comments = commentDao.getAllListComment();
-    //ArrayList<Users> categories=usersDao.get();
 %>
 <script>
     function delete_commnet_ajax(commnet_ID) {
@@ -101,7 +98,9 @@
                                 </div>
                             </td>
                             <td><%Post pC=postDao.getPost(c.getComment_post_id());%>
-                                <a href="<%=WebConstant.getLocalHost()%>/post/<%=pC.getPostSlug()%>"><%=pC.getPostTitle()%></a>
+                                <a href="<%=WebConstant.getLocalHost()%>/post/<%=pC.getPostSlug()%>">
+                                    <%=pC.getPostTitle()%>
+                                </a>
                             </td>
                             <td><%=c.getComment_date()%></td>
                         </tr>

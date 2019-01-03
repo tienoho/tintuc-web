@@ -116,14 +116,13 @@ public class CommentDao {
         Connection connection = null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "UPDATE comments set comment_post_id=?,comment_author=?,comment_author_email=?,comment_content=?,comment_parent=? where comment_id=?";
+            String sql = "UPDATE comments set comment_status=?,comment_author=?,comment_author_email=?,comment_content=? where comment_id=?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, c.getComment_post_id());
+            ps.setInt(1, c.getComment_status());
             ps.setString(2, c.getComment_author());
             ps.setString(3, c.getComment_author_email());
             ps.setString(4, c.getComment_content());
-            ps.setInt(5, c.getComment_parent());
-            ps.setInt(6, c.getComment_id());
+            ps.setInt(5, c.getComment_id());
             int temp = ps.executeUpdate();
             connection.close();
             return temp == 1;

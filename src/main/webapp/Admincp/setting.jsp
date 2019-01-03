@@ -15,6 +15,7 @@
     CategoryDao categoryDao = new CategoryDao();
     List<Category> categories = categoryDao.getListCategory();
     String error_blogname = "", error_siteurl = "";
+    String errorbl = "", error = "";
     if (session.getAttribute("error_blogname") != null) {
         error_blogname = (String) session.getAttribute("error_blogname");
         session.removeAttribute("error_blogname");
@@ -62,7 +63,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ email</label>
-                                    <input class="form-control" name="admin_email" value="<%=WebConstant.getAdmin_email()%>">
+                                    <input class="form-control" name="admin_email"
+                                           value="<%=WebConstant.getAdmin_email()%>">
                                     <p class="help-block">Địa chỉ này được sử dụng cho mục đích quản trị.</p>
                                 </div>
                                 <div class="form-group">
@@ -90,7 +92,7 @@
                                     <p class="help-block">Số bài viết xuất hiện ở trang chủ phụ.</p>
                                 </div>
                                 <div class="form-group">
-                                    <label>Hiển thị số bài viết</label>
+                                    <label>Hiển thị số bài viết chuyên mục</label>
                                     <input class="form-control" type="number" name="post_category"
                                            value="<%=WebConstant.getPostNumber()%>">
                                     <p class="help-block">Số bài viết xuất hiện mỗi trang ở chuyên mục.</p>
@@ -136,13 +138,15 @@
                                             // Launch CKFinder
                                             finder.popup();
                                         }
+
                                         // This is a sample function which is called when a file is selected in CKFinder.
                                         function SetFileField(fileUrl, data) {
                                             document.getElementById(data["selectActionData"]).value = fileUrl;
                                             var x = document.getElementById(data["selectActionData"]).getAttribute("id");
-                                            x=x.replace("xImagePath","");
-                                            ShowThumbnailsaa(x,fileUrl);
+                                            x = x.replace("xImagePath", "");
+                                            ShowThumbnailsaa(x, fileUrl);
                                         }
+
                                         // This is a sample function which is called when a thumbnail is selected in CKFinder.
                                         function ShowThumbnails(fileUrl, data) {   // this = CKFinderAPI
                                             var sFileName = this.getSelectedFile().name;
@@ -158,12 +162,13 @@
                                             // When false is returned, CKFinder will not close automatically.
                                             return false;
                                         }
-                                        function ShowThumbnailsaa(x,imgUrl) {
+
+                                        function ShowThumbnailsaa(x, imgUrl) {
                                             var htmlll = '<div class="thumb">' +
                                                 '<img height= "150px" width= "150px" src="<%=WebConstant.getLocalHost()%>' + imgUrl + '" />' +
                                                 '</div>';
-                                            document.getElementById('thumbnails'+x).innerHTML = htmlll;
-                                            document.getElementById('preview'+x).style.display = "";
+                                            document.getElementById('thumbnails' + x).innerHTML = htmlll;
+                                            document.getElementById('preview' + x).style.display = "";
                                         }
                                     </script>
                                     <!-- /.panel-heading -->
@@ -222,7 +227,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="xImagePath-banner-header" class="col-sm-2 col-form-label">Banner header</label>
+                                    <label for="xImagePath-banner-header" class="col-sm-2 col-form-label">Banner
+                                        header</label>
                                     <!-- /.panel-heading -->
                                     <div class="panel-body col-sm-10">
                                         <div id="preview-banner-header" style="display:none">

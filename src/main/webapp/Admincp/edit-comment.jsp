@@ -114,8 +114,9 @@
                         </div>
                         <!-- /.list-group -->
                         <a href="<%=WebConstant.getLocalHost()%>/ManagerCommentServlet?comment=<%=comment.getComment_id()%>&action=delete" class="text-danger">Xóa</a>
-                        <input hidden="hidden" name="postID" value="<%=comment.getComment_id()%>">
-                        <input hidden="hidden" name="command" value=update">
+                        <input hidden="hidden" name="comment-id" value="<%=comment.getComment_id()%>">
+                        <input hidden="hidden" name="comment_post_id" value="<%=comment.getComment_post_id()%>">
+                        <input hidden="hidden" name="command" value="update">
                         <button type="submit" class="btn btn-success">Cập nhập</button>
                     </div>
                     <!-- /.panel-body -->
