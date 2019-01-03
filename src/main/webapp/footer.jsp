@@ -57,7 +57,7 @@
                             <a href="<%=WebConstant.getLocalHost()+"/post/"+pFooter.getPostSlug()%>"
                                title="<%=pFooter.getPostTitle()%>"><%=pFooter.getPostTitle()%></a>
                             <div class="cf listing-meta meta below">
-                                <time datetime="<%=pFooter.getPostDate()%>" class="meta-item"><%=pFooter.getPostDate()%></time>
+                                <time datetime="<%=pFooter.getPostDateTimestamp()%>" class="meta-item"><%=pFooter.getPostDateTimestamp()%></time>
                             </div>
                         </div>
                     </li>

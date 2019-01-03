@@ -48,9 +48,9 @@ public class SocialDao {
             connection = DBConnect.getConnecttion();
             String sql = "INSERT INTO social_option(social_name, social_url, social_title,social_icon) VALUE(?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, s.getSocial_name());
+            ps.setNString(1, s.getSocial_name());
             ps.setString(2, s.getSocial_url());
-            ps.setString(3, s.getSocial_title());
+            ps.setNString(3, s.getSocial_title());
             ps.setString(4, s.getSocial_icon());
             int temp = ps.executeUpdate();
             connection.close();
@@ -67,9 +67,9 @@ public class SocialDao {
             connection = DBConnect.getConnecttion();
             String sql = "UPDATE social_option set social_name=?, social_url=?, social_title=?,social_icon=? where social_id=?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, s.getSocial_name());
+            ps.setNString(1, s.getSocial_name());
             ps.setString(2, s.getSocial_url());
-            ps.setString(3, s.getSocial_title());
+            ps.setNString(3, s.getSocial_title());
             ps.setString(4, s.getSocial_icon());
             ps.setInt(5, s.getSocial_id());
             int temp = ps.executeUpdate();

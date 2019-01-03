@@ -48,7 +48,7 @@
                             <a href="<%=WebConstant.getLocalHost()+"/post/"+pView.getPostSlug()%>"
                                title="<%=pView.getPostTitle()%>"><%=pView.getPostTitle()%></a>
                             <div class="cf listing-meta meta below">
-                                <time datetime="<%=pView.getPostDate()%>" class="meta-item"><%=pView.getPostDate()%></time>
+                                <time datetime="<%=pView.getPostDateTimestamp()%>" class="meta-item"><%=pView.getPostDateTimestamp()%></time>
                             </div>
                         </div>
                     </li>
@@ -102,7 +102,7 @@
                                                     By <a href="author/trendy/index.html" title="Posts by <%=new UsersDao().getName(pRandom.getAuthorID())%>"
                                                           rel="author"><%=new UsersDao().getName(pRandom.getAuthorID())%></a>
                                                 </span>
-                                <time datetime="<%=pRandom.getPostDate()%>" class="meta-item"><%=pRandom.getPostDate()%></time>
+                                <time datetime="<%=pRandom.getPostDateTimestamp()%>" class="meta-item"><%=pRandom.getPostDateTimestamp()%></time>
                             </div>
                             <div class="excerpt">
                                 <p><%=tool.html2text(pRandom.getPostContent()).substring(0,100)%></p>
@@ -128,7 +128,7 @@
                                 <div class="content">
                                     <a href=""><%=pRandom.getPostTitle()%></a>
                                     <div class="cf listing-meta below">
-                                        <time datetime="<%=pRandom.getPostDate()%>" class="meta-item"><%=pRandom.getPostDate()%></time>
+                                        <time datetime="<%=pRandom.getPostDateTimestamp()%>" class="meta-item"><%=pRandom.getPostDateTimestamp()%></time>
                                     </div>
                                 </div>
                             </li>
@@ -173,7 +173,7 @@
                                                                   title="Posts by Kate Hanson"
                                                                   rel="author"><%=usersDao.getName(pMiss.getAuthorID())%></a>
                                                         </span>
-                                        <time datetime="<%=pMiss.getPostDate()%>" class="meta-item"><%=pMiss.getPostDate()%></time>
+                                        <time datetime="<%=pMiss.getPostDateTimestamp()%>" class="meta-item"><%=pMiss.getPostDateTimestamp()%></time>
                                     </div>
                                 </article>
                             </div>

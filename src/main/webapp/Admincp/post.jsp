@@ -94,7 +94,7 @@
                                     <%=c.getCategoryName()%> ,
                                 <%}%>
                             </td>
-                            <td><%=p.getPostDate()%></td>
+                            <td><%=p.getPostDateTimestamp()%></td>
                         </tr>
                         <%}%>
                         </tbody>

@@ -87,7 +87,7 @@
                                                                      title="Posts by <%=usersDao.getName(p.getAuthorID())%>"
                                                                      rel="author"><%=usersDao.getName(p.getAuthorID())%></a>
                                 </span>
-                                <time datetime="<%=p.getPostDate()%>" class="meta-item"><%=p.getPostDate()%>
+                                <time datetime="<%=p.getPostDateTimestamp()%>" class="meta-item"><%=p.getPostDateTimestamp()%>
                                 </time>
                             </div>
                             <div class="excerpt">

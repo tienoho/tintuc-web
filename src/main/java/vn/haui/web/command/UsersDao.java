@@ -85,9 +85,9 @@ public class UsersDao {
 
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, user.getEmail());
+            ps.setNString(1, user.getEmail());
             ps.setString(2, user.getPassword());
-            ps.setString(3, user.getFullName());
+            ps.setNString(3, user.getFullName());
             ps.setDate(4, user.getCreatedDate());
             ps.setInt(5, user.getRoleId());
             ps.executeUpdate();
@@ -199,10 +199,10 @@ public class UsersDao {
             connection = DBConnect.getConnecttion();
             String sql = "UPDATE users set fullname=?, img=?, roleid=? where email=?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1,c.getFullName());
+            ps.setNString(1,c.getFullName());
             ps.setString(2, c.getImg());
             ps.setInt(3, c.getRoleId());
-            ps.setString(4, c.getEmail());
+            ps.setNString(4, c.getEmail());
             int temp = ps.executeUpdate();
             connection.close();
             return temp == 1;

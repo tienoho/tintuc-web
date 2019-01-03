@@ -30,7 +30,7 @@ public class SettingDao {
             connection = DBConnect.getConnecttion();
             String sql = "UPDATE option_config set option_value=? where option_name=?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, s.getOptionValue());
+            ps.setNString(1, s.getOptionValue());
             ps.setString(2, s.getOptionName());
             int temp = ps.executeUpdate();
             connection.close();
@@ -55,6 +55,22 @@ public class SettingDao {
         }
         connection.close();
         return list;
+    }
+    public boolean updateFooter(Setting s) throws SQLException {
+        Connection connection = null;
+        try {
+            connection = DBConnect.getConnecttion();
+            String sql = "UPDATE option_footer set footer_value=? where footer_name=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setNString(1, s.getOptionValue());
+            ps.setString(2, s.getOptionName());
+            int temp = ps.executeUpdate();
+            connection.close();
+            return temp == 1;
+        } catch (Exception e) {
+            connection.close();
+            return false;
+        }
     }
 
 }

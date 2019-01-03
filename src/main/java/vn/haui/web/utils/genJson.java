@@ -79,7 +79,7 @@ public class genJson {
                     "<div class=\"cf listing-meta meta below\">" +
                     "<span class=\"meta-item author\">Bởi <a href=\"" + WebConstant.getLocalHost() + "/user" + "\"" +
                     " title=\"Posts by Kate Hanson\" rel=\"author\">Kate Hanson</a></span>" +
-                    "<time datetime=\"" + p.getPostDate() + "\" class=\"meta-item\">" + p.getPostDate() + "</time>" +
+                    "<time datetime=\"" + p.getPostDateTimestamp() + "\" class=\"meta-item\">" + p.getPostDateTimestamp() + "</time>" +
                     "</div>" +
                     "<div class=\"excerpt\"><p>" + tool.html2text(p.getPostContent()).substring(0, 50) + WebConstant.tobeContime + "</p></div>" +
                     "</article></div>";
@@ -111,7 +111,7 @@ public class genJson {
                         " href=\"" + WebConstant.getLocalHost() + "/post/" + p.getPostSlug() + "\"" +
                         " title=\"" + p.getPostTitle() + "\">" + p.getPostTitle() + "</a>" +
                         "<div class=\"cf listing-meta below\">" +
-                        "<time datetime=\"" + p.getPostDate() + "\" class=\"meta-item\">" + p.getPostDate() + "</time>" +
+                        "<time datetime=\"" + p.getPostDateTimestamp() + "\" class=\"meta-item\">" + p.getPostDateTimestamp() + "</time>" +
                         "</div></div></article></li>";
             }
         }
@@ -165,7 +165,7 @@ public class genJson {
                     "<div class=\"cf listing-meta meta below\"><span class=\"meta-item author\">Bởi <a" +
                     " href=\""+WebConstant.getLocalHost()+"/user"+"\"" +
                     " title=\"Posts by Kate Hanson\" rel=\"author\">Kate Hanson</a></span>" +
-                    "<time datetime=\""+p.getPostDate()+"\" class=\"meta-item\">"+p.getPostDate()+"</time>" +
+                    "<time datetime=\""+p.getPostDateTimestamp()+"\" class=\"meta-item\">"+p.getPostDateTimestamp()+"</time>" +
                     "</div>" +
                     "<div class=\"excerpt\"><p>"+ tomtat + WebConstant.tobeContime +"</p></div>" +
                     "</article></div>";

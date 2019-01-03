@@ -61,7 +61,7 @@ public class ManagerFooterServlet extends HttpServlet {
 
     private void setSetting(Setting s) {
         try {
-            if(settingDao.update(s)) ;
+            if(settingDao.updateFooter(s)) ;
         } catch (SQLException e) {
             e.printStackTrace();
         }

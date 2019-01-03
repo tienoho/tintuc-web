@@ -124,6 +124,13 @@
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/Admincp/*</url-pattern>
     </filter-mapping>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
     <!--cấu hình kết nối-->
     <env-entry>
         <env-entry-name>url</env-entry-name>

@@ -130,8 +130,8 @@ public class CategoryDao {
             connection = DBConnect.getConnecttion();
             String sql = "INSERT INTO category(category_name, category_des, category_slug,category_parent) VALUE(?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, c.getCategoryName());
-            ps.setString(2, c.getCategoryDes());
+            ps.setNString(1, c.getCategoryName());
+            ps.setNString(2, c.getCategoryDes());
             ps.setString(3, c.getCategorySlug());
             ps.setInt(4, c.getCategoryParent());
 
@@ -150,8 +150,8 @@ public class CategoryDao {
             connection = DBConnect.getConnecttion();
             String sql = "UPDATE category set category_name=?, category_des=?, category_slug=?,category_parent=? where category_id=?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, c.getCategoryName());
-            ps.setString(2, c.getCategoryDes());
+            ps.setNString(1, c.getCategoryName());
+            ps.setNString(2, c.getCategoryDes());
             ps.setString(3, c.getCategorySlug());
             ps.setInt(4, c.getCategoryParent());
             ps.setInt(5, c.getCategoryID());
@@ -182,6 +182,7 @@ public class CategoryDao {
     }
     public String createCategorySlug(String categoryName)
     {
+        categoryName=categoryName.replaceAll("  ", " ").trim();
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         String dateTimeNow=sdf.format(cal.getTime());
@@ -189,7 +190,8 @@ public class CategoryDao {
             String temp = Normalizer.normalize(categoryName, Normalizer.Form.NFD);
             Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
 
-            String slug= pattern.matcher(temp).replaceAll("").toLowerCase().replaceAll(" ", "-").replaceAll("đ", "d");
+            String slug= pattern.matcher(temp).replaceAll("").toLowerCase().replaceAll(" ", "-")
+                    .replaceAll("đ", "d").replace("?", "");
             if(checkCategorySlug(slug))
                 slug=slug+"-"+dateTimeNow;
             return slug;
@@ -213,15 +215,6 @@ public class CategoryDao {
             }
         }
         return categories;
-    }
-
-    public static void main(String[] args) throws SQLException {
-        CategoryDao categoryDao=new CategoryDao();
-        ArrayList<Category>categories= new ArrayList<>();
-        for(Category c:categoryDao.S())
-        {
-            System.out.println(c.getCategoryID()+"-"+c.getCategoryName()+"-"+c.getCategoryParent());
-        }
     }
     public ArrayList<Category> getListCategoryByPost(int postId) throws SQLException {
         Connection connection = DBConnect.getConnecttion();

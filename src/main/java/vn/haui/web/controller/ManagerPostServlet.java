@@ -56,11 +56,12 @@ public class ManagerPostServlet extends HttpServlet {
                         post.setPostTitle(postTitle);
                         post.setPostSlug(postDao.createPostSlug(postTitle));
                         post.setPostContent(request.getParameter("post-content"));
-                        post.setPostDate(postDao.GetDateNow());
+                        //post.setPostDate(postDao.GetDateNow());
+                        post.setPostDateTimestamp(postDao.GetTimestampNow());
                         post.setAuthorID(1);
                         String imgUrl=request.getParameter("ImagePath");
-                        if(imgUrl.startsWith("/"))
-                            imgUrl=imgUrl.substring(1,imgUrl.length());
+//                        if(imgUrl.startsWith("/"))
+//                            imgUrl=imgUrl.substring(1,imgUrl.length());
                         post.setPostImg(imgUrl);
                         post.setCategoryID(1);
                         post.setPostStatus("Public");
@@ -98,11 +99,11 @@ public class ManagerPostServlet extends HttpServlet {
                             post.setPostSlug(postDao.createPostSlug(postTitle));
                         }
                         post.setPostContent(request.getParameter("post-content"));
-                        post.setPostDate(postDao.GetDateNow());
+                        post.setPostDateTimestamp(postDao.GetTimestampNow());
                         post.setAuthorID(1);
                         String imgUrl=request.getParameter("ImagePath");
-                        if(imgUrl.startsWith("/"))
-                            imgUrl=imgUrl.substring(1,imgUrl.length());
+//                        if(imgUrl.startsWith("/"))
+//                            imgUrl=imgUrl.substring(1,imgUrl.length());
                         post.setPostImg(imgUrl);
                         post.setCategoryID(1);
                         post.setPostStatus("Public");

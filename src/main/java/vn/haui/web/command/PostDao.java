@@ -3,10 +3,7 @@ package vn.haui.web.command;
 import vn.haui.web.connect.DBConnect;
 import vn.haui.web.model.Post;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,8 +26,8 @@ public class PostDao {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -53,8 +50,8 @@ public class PostDao {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -77,8 +74,8 @@ public class PostDao {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -103,8 +100,8 @@ public class PostDao {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -128,8 +125,8 @@ public class PostDao {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -159,8 +156,8 @@ public class PostDao {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -193,8 +190,8 @@ public class PostDao {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -220,8 +217,8 @@ public class PostDao {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -244,8 +241,8 @@ public class PostDao {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -273,8 +270,8 @@ public class PostDao {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -297,8 +294,8 @@ public class PostDao {
             post = new Post();
             post.setPostID(rs.getInt("post_id"));
             post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDate(rs.getDate("post_date"));
-            post.setPostEditDate(rs.getDate("post_edit_date"));
+            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
+            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
             post.setPostContent(rs.getString("post_content"));
             post.setPostTitle(rs.getString("post_title"));
             post.setPostStatus(rs.getString("post_status"));
@@ -408,14 +405,14 @@ public class PostDao {
                     "VALUE(?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, c.getAuthorID());
-            ps.setDate(2,c.getPostDate());
-            ps.setDate(3,c.getPostEditDate());
-            ps.setString(4, c.getPostContent());
-            ps.setString(5, c.getPostTitle());
+            ps.setTimestamp(2,c.getPostDateTimestamp());
+            ps.setTimestamp(3,c.getPostEditDate());
+            ps.setNString(4, c.getPostContent());
+            ps.setNString(5, c.getPostTitle());
             ps.setString(6, c.getPostStatus());
             ps.setString(7, c.getPostSlug());
             ps.setString(8, c.getPostImg());
-            ps.setString(9, c.getPostSummary());
+            ps.setNString(9, c.getPostSummary());
             int temp = ps.executeUpdate();
             connection.close();
             return temp == 1;
@@ -431,13 +428,13 @@ public class PostDao {
             String sql = "UPDATE Post set post_edit_date=?, post_content=?, post_title=?," +
                     " post_slug=?,post_img=?,post_status=? ,post_summary=? where post_id=?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setDate(1,c.getPostEditDate());
-            ps.setString(2, c.getPostContent());
-            ps.setString(3, c.getPostTitle());
+            ps.setTimestamp(1,c.getPostEditDate());
+            ps.setNString(2, c.getPostContent());
+            ps.setNString(3, c.getPostTitle());
             ps.setString(4, c.getPostSlug());
             ps.setString(5, c.getPostImg());
             ps.setString(6, c.getPostStatus());
-            ps.setString(7, c.getPostSummary());
+            ps.setNString(7, c.getPostSummary());
             ps.setInt(8, c.getPostID());
             int temp = ps.executeUpdate();
             connection.close();
@@ -479,8 +476,20 @@ public class PostDao {
         return "";
     }
     public java.sql.Date GetDateNow()    {
+
         java.util.Date myDate = (Calendar.getInstance().getTime());
         java.sql.Date sqlDateNow = new java.sql.Date(myDate.getTime());
         return sqlDateNow;
+    }
+    public java.sql.Timestamp GetTimestampNow()    {
+
+        java.util.Date myDate = (Calendar.getInstance().getTime());
+        java.sql.Timestamp sqlDateNow = new java.sql.Timestamp(myDate.getTime());
+        return sqlDateNow;
+    }
+    public static void main(String[] args) {
+        java.util.Date myDate = (Calendar.getInstance().getTime());
+        java.sql.Timestamp sqlDateNow = new java.sql.Timestamp(myDate.getTime());
+        System.out.println(sqlDateNow);
     }
 }

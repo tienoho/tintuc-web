@@ -1,12 +1,13 @@
 package vn.haui.web.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Post {
     private int postID;
     private int authorID;
-    private Date postDate;
-    private Date postEditDate;
+    private Timestamp postDateTimestamp;
+    private Timestamp postEditDate;
     private String postContent;
     private String postTitle;
     private String postStatus;
@@ -18,10 +19,10 @@ public class Post {
     public Post() {
     }
 
-    public Post(int postID, int authorID, Date postDate, Date postEditDate, String postContent, String postTitle, String postStatus, String postSlug, String postImg, int categoryID, String postSummary) {
+    public Post(int postID, int authorID, Timestamp postDateTimestamp, Timestamp postEditDate, String postContent, String postTitle, String postStatus, String postSlug, String postImg, int categoryID, String postSummary) {
         this.postID = postID;
         this.authorID = authorID;
-        this.postDate = postDate;
+        this.postDateTimestamp = postDateTimestamp;
         this.postEditDate = postEditDate;
         this.postContent = postContent;
         this.postTitle = postTitle;
@@ -32,13 +33,6 @@ public class Post {
         this.postSummary = postSummary;
     }
 
-    public String getPostSummary() {
-        return postSummary;
-    }
-
-    public void setPostSummary(String postSummary) {
-        this.postSummary = postSummary;
-    }
     public int getPostID() {
         return postID;
     }
@@ -55,19 +49,19 @@ public class Post {
         this.authorID = authorID;
     }
 
-    public Date getPostDate() {
-        return postDate;
+    public Timestamp getPostDateTimestamp() {
+        return postDateTimestamp;
     }
 
-    public void setPostDate(Date postDate) {
-        this.postDate = postDate;
+    public void setPostDateTimestamp(Timestamp postDateTimestamp) {
+        this.postDateTimestamp = postDateTimestamp;
     }
 
-    public Date getPostEditDate() {
+    public Timestamp getPostEditDate() {
         return postEditDate;
     }
 
-    public void setPostEditDate(Date postEditDate) {
+    public void setPostEditDate(Timestamp postEditDate) {
         this.postEditDate = postEditDate;
     }
 
@@ -117,5 +111,13 @@ public class Post {
 
     public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
+    }
+
+    public String getPostSummary() {
+        return postSummary;
+    }
+
+    public void setPostSummary(String postSummary) {
+        this.postSummary = postSummary;
     }
 }

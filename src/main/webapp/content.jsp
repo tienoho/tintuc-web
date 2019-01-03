@@ -55,7 +55,7 @@
                                         <a href="category/fashion/index.html" title="Fashion">Fashion</a>
                                     </span>
                             <h3><a href="<%=WebConstant.getLocalHost()%>/post/<%=p.getPostSlug()%>" class="item-heading"><%=p.getPostTitle()%></a></h3>
-                            <time class="the-date" datetime="<%=p.getPostDate()%>"><%=p.getPostDate()%></time>
+                            <time class="the-date" datetime="<%=p.getPostDateTimestamp()%>"><%=p.getPostDateTimestamp()%></time>
                         </div>
                     </div>
                 </li>
@@ -77,7 +77,7 @@
                             <h3>
                                 <a href="<%=WebConstant.getLocalHost()%>/post/<%=p.getPostSlug()%>" class="item-heading heading-small"><%=p.getPostTitle()%></a>
                             </h3>
-                            <time class="the-date" datetime="<%=p.getPostDate()%>"><%=p.getPostDate()%></time>
+                            <time class="the-date" datetime="<%=p.getPostDateTimestamp()%>"><%=p.getPostDateTimestamp()%></time>
                         </div>
                     </div>
                     <%} else {%>
@@ -95,7 +95,7 @@
                             <h3>
                                 <a href="<%=WebConstant.getLocalHost()%>/post/<%=p.getPostSlug()%>" class="item-heading heading-small"><%=p.getPostTitle()%></a>
                             </h3>
-                            <time class="the-date" datetime="<%=p.getPostDate()%>"><%=p.getPostDate()%></time>
+                            <time class="the-date" datetime="<%=p.getPostDateTimestamp()%>"><%=p.getPostDateTimestamp()%></time>
                         </div>
                     </div>
                     <%
@@ -157,7 +157,7 @@
                                                     href="author/trendy/index.html" title="Posts by <%=usersDao.getName(p.getAuthorID())%>"
                                                     rel="author"><%=usersDao.getName(p.getAuthorID())%></a>
                                             </span>
-                                            <time datetime="<%=p.getPostDate()%>" class="meta-item"><%=p.getPostDate()%>
+                                            <time datetime="<%=p.getPostDateTimestamp()%>" class="meta-item"><%=p.getPostDateTimestamp()%>
                                             </time>
                                         </div>
                                         <div class="excerpt">
@@ -199,8 +199,8 @@
                                                 title="<%=p.getPostTitle()%>"><%=p.getPostTitle()%>
                                         </a>
                                             <div class="cf listing-meta below">
-                                                <time datetime="<%=p.getPostDate()%>"
-                                                      class="meta-item"><%=p.getPostDate()%>
+                                                <time datetime="<%=p.getPostDateTimestamp()%>"
+                                                      class="meta-item"><%=p.getPostDateTimestamp()%>
                                                 </time>
                                             </div>
                                         </div>
@@ -257,7 +257,7 @@
                                                     By <a href="" title="Posts by <%=usersDao.getName(pSub.getAuthorID())%>"
                                                           rel="author"><%=usersDao.getName(pSub.getAuthorID())%></a>
                                                 </span>
-                                        <time datetime="<%=pSub.getPostDate()%>" class="meta-item"><%=pSub.getPostDate()%></time>
+                                        <time datetime="<%=pSub.getPostDateTimestamp()%>" class="meta-item"><%=pSub.getPostDateTimestamp()%></time>
                                     </div>
                                     <div class="excerpt">
                                         <p><%String contenTomTat=tool.html2text(pSub.getPostContent());
@@ -393,7 +393,7 @@
                                         <a href="<%=WebConstant.getLocalHost()+"/post/"+pSection4.getPostSlug()%>" class="post-title"><%=pSection4.getPostTitle()%></a>
                                         <div class="cf listing-meta meta below"><span class="meta-item author">By <a
                                                 href="author/trendy/index.html" title="Posts by <%=usersDao.getName(pSection4.getAuthorID())%>" rel="author"><%=usersDao.getName(pSection4.getAuthorID())%></a></span>
-                                            <time datetime="<%=pSection4.getPostDate()%>" class="meta-item"><%=pSection4.getPostDate()%></time>
+                                            <time datetime="<%=pSection4.getPostDateTimestamp()%>" class="meta-item"><%=pSection4.getPostDateTimestamp()%></time>
                                         </div>
                                         <div class="excerpt"><p>
                                             <%String contenTomTat=tool.html2text(pSection4.getPostContent());

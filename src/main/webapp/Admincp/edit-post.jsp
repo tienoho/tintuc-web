@@ -139,7 +139,7 @@
                             </a>
                             <a href="#" class="list-group-item">
                                 <i class="fa fa-twitter fa-fw"></i> Ngày đăng
-                                <span class="pull-right text-muted small"><em><%=action.equals("edit") ? post.getPostDate() : "Ngay bây giờ"%></em>
+                                <span class="pull-right text-muted small"><em><%=action.equals("edit") ? post.getPostDateTimestamp() : "Ngay bây giờ"%></em>
                                     </span>
                             </a>
                         </div>
@@ -284,7 +284,7 @@
         } else {
             var urlImage = $('#xImagePath').val();
             var htmlll = '<div class="thumb">' +
-                '<img height= "150px" width= "150px" src="<%=WebConstant.getLocalHost()%>/' + urlImage + '" />' +
+                '<img height= "150px" width= "150px" src="<%=WebConstant.getLocalHost()%>' + urlImage + '" />' +
                 '</div>';
             document.getElementById('thumbnails').innerHTML += htmlll;
             document.getElementById('preview').style.display = "";

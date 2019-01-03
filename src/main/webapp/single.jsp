@@ -79,7 +79,7 @@
                                                        title="Posts by <%=usersDao.getName(p.getAuthorID())%>"
                                                        rel="author"><%=usersDao.getName(p.getAuthorID())%></a> </span>
                         <span class="posted-on">
-                                <time class="post-date" datetime="<%=p.getPostDate()%>"><%=p.getPostDate()%></time>
+                                <time class="post-date" datetime="<%=p.getPostDateTimestamp()%>"><%=p.getPostDateTimestamp()%></time>
                             </span>
                         <a href="index.html#comments" class="comments">
                         <i class="fa fa-comments-o"></i><%=comments.size()%> Bình luận
@@ -239,8 +239,8 @@
                             <h2><a href="" title="<%=pInterdepend.getPostTitle()%>"><%=pInterdepend.getPostTitle()%>
                             </a></h2>
                             <div class="cf listing-meta meta below">
-                                <time datetime="<%=pInterdepend.getPostDate()%>"
-                                      class="meta-item"><%=pInterdepend.getPostDate()%>
+                                <time datetime="<%=pInterdepend.getPostDateTimestamp()%>"
+                                      class="meta-item"><%=pInterdepend.getPostDateTimestamp()%>
                                 </time>
                             </div>
                         </article>

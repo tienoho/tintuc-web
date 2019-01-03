@@ -21,6 +21,8 @@ public class SettingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
+
         String url = "/Admincp/setting.jsp", error = "", result = "", error_slug = "";
         String blogname = request.getParameter("blogname");
         String blogdescription = request.getParameter("blogdescription");
