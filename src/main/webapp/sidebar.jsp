@@ -105,7 +105,9 @@
                                 <time datetime="<%=pRandom.getPostDateTimestamp()%>" class="meta-item"><%=pRandom.getPostDateTimestamp()%></time>
                             </div>
                             <div class="excerpt">
-                                <p><%=tool.html2text(pRandom.getPostContent()).substring(0,100)%></p>
+                                <p><%String contenTomTat=tool.html2text(pRandom.getPostContent());
+                                    if(contenTomTat.length()>=100){contenTomTat=contenTomTat.substring(0, 100);}%>
+                                    <%=contenTomTat%><%=WebConstant.tobeContime%></p>
                             </div>
                         </article>
                         <%break;}%>

@@ -62,6 +62,12 @@ public class genJson {
             if (extendsImgNew.contains(".")) {
                 extendsImgNew = extendsImgNew.substring(extendsImgNew.lastIndexOf("."), extendsImgNew.length());
             }
+            String tomtat=tool.html2text(p.getPostContent());
+            if(tomtat.length()>=50){
+                tomtat=tomtat.substring(0, 50);
+            }else {
+                tomtat="";
+            }
             content += "<div class=\"column half b-col\"><article>" +
                     "<a href=\"" + WebConstant.getLocalHost() + "/post/" + p.getPostSlug() + "\"" +
                     " title=\"" + p.getPostTitle() + "\" class=\"image-link\">" +
@@ -81,7 +87,7 @@ public class genJson {
                     " title=\"Posts by Kate Hanson\" rel=\"author\">Kate Hanson</a></span>" +
                     "<time datetime=\"" + p.getPostDateTimestamp() + "\" class=\"meta-item\">" + p.getPostDateTimestamp() + "</time>" +
                     "</div>" +
-                    "<div class=\"excerpt\"><p>" + tool.html2text(p.getPostContent()).substring(0, 50) + WebConstant.tobeContime + "</p></div>" +
+                    "<div class=\"excerpt\"><p>" + tomtat + WebConstant.tobeContime + "</p></div>" +
                     "</article></div>";
             if (dem > 1) {
                 dem = 0;

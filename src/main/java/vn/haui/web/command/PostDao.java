@@ -362,7 +362,7 @@ public class PostDao {
         Connection connection=null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "INSERT INTO Post(author_id, post_date, post_edit_date, post_content, post_title, post_status, post_slug, post_img,post_summary) " +
+            String sql = "INSERT INTO post(author_id, post_date, post_edit_date, post_content, post_title, post_status, post_slug, post_img,post_summary) " +
                     "VALUE(?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, c.getAuthorID());
@@ -386,7 +386,7 @@ public class PostDao {
         Connection connection=null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "UPDATE Post set post_edit_date=?, post_content=?, post_title=?," +
+            String sql = "UPDATE post set post_edit_date=?, post_content=?, post_title=?," +
                     " post_slug=?,post_img=?,post_status=? ,post_summary=? where post_id=?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setTimestamp(1,c.getPostEditDate());
@@ -409,7 +409,7 @@ public class PostDao {
         Connection connection=null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "DELETE FROM Post WHERE post_id = ?";
+            String sql = "DELETE FROM post WHERE post_id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setLong(1, post_id);
             int temp = ps.executeUpdate();
