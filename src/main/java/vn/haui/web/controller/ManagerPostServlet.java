@@ -28,18 +28,15 @@ public class ManagerPostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-
         Post post;
         TermsRelationships termsRelationships;
-
         String url =WebConstant.getLocalHost()+"/Admincp/edit-post.jsp", error = "", result = "", error_slug = "";
         String command = request.getParameter("command");
         String postTitle = request.getParameter("post-title");
         //String[] tagList = request.getParameterValues("item-tag");
-
         String postSlug = "";
         HttpSession session = request.getSession(false);
-        if (postDao.checkPostSlug(postSlug) && !postSlug.equals("")) {
+        if (postDao.checkPostSlug(postSlug)) {
             error_slug = "Trường này phải là duy nhất";
             session.setAttribute("error_slug", error_slug);
             response.sendRedirect(url);
@@ -143,10 +140,6 @@ public class ManagerPostServlet extends HttpServlet {
             session.setAttribute("result", result);
         }
         response.sendRedirect(url);
-        //request.setAttribute("result", result);
-        //response.sendRedirect(WebConstant.localHost + "/Admincp/category.jsp");
-        //RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-        //rd.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
