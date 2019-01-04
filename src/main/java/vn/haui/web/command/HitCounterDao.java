@@ -25,7 +25,7 @@ public class HitCounterDao {
 
     public HitCounter getHitCounter(int idPost) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM hit_counter_post where id_post=?";
+        String sql = "SELECT * FROM hit_counter_post where post_id=?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, idPost);
         ResultSet rs = ps.executeQuery();
@@ -40,7 +40,7 @@ public class HitCounterDao {
     }
     public int getCountHitCounter(int postID) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT hit_counter FROM hit_counter_post WHERE id_post = ?";
+        String sql = "SELECT hit_counter FROM hit_counter_post WHERE post_id = ?";
 
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1,postID);
@@ -56,7 +56,7 @@ public class HitCounterDao {
         Connection connection = null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "INSERT INTO hit_counter_post(id_post,hit_counter) VALUE (?,?)";
+            String sql = "INSERT INTO hit_counter_post(post_id,hit_counter) VALUE (?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, c.getIdPost());
             ps.setInt(2, c.getHitCounter());
@@ -72,7 +72,7 @@ public class HitCounterDao {
         Connection connection = null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "UPDATE hit_counter_post set hit_counter=? where id_post=?";
+            String sql = "UPDATE hit_counter_post set hit_counter=? where post_id=?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, c.getHitCounter());
             ps.setInt(2, c.getIdPost());

@@ -65,7 +65,7 @@ public class ManagerCommentServlet extends HttpServlet {
                         comment.setComment_author(request.getParameter("comment-author"));
                         comment.setComment_status(Integer.parseInt(request.getParameter("comment-status")));
                         commentDao.update(comment);
-                        result = "Cập nhập thành công";
+                        result = "Cập nhập thành công"+comment.getComment_status();
                         session.setAttribute("result", result);
                         url = WebConstant.getLocalHost() + "/Admincp/edit-comment.jsp?comment=" + comment.getComment_id() + "&action=edit";
                     }
@@ -88,22 +88,21 @@ public class ManagerCommentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String command = request.getParameter("command");
+        //String command = request.getParameter("command");
+        String action = request.getParameter("action");
         String url = WebConstant.getLocalHost() + "/Admincp/comment.jsp";
-        switch (command) {
+        switch (action) {
             case "delete":
                 try {
-                    commentDao.delete(Integer.parseInt(request.getParameter("comment-id")));
+                    commentDao.delete(Integer.parseInt(request.getParameter("comment")));
                     url = WebConstant.getLocalHost() + "/Admincp/comment.jsp";
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 break;
-        }
-        switch (command) {
             case "activate":
                 try {
-                    commentDao.delete(Integer.parseInt(request.getParameter("comment-id")));
+                    commentDao.actionActivate(Integer.parseInt(request.getParameter("comment")));
                     url = WebConstant.getLocalHost() + "/Admincp/comment.jsp";
                 } catch (SQLException e) {
                     e.printStackTrace();

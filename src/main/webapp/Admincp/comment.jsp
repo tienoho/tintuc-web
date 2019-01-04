@@ -70,7 +70,7 @@
                             <td><a href="edit-comment.jsp?comment=<%=c.getComment_id()%>&action=edit" class="font-weight-bold"><%=c.getComment_content()%></a>
                                 <div class="row-actions">
                                     <%if(c.getComment_status()==1){%>
-                                    <span class="activate"><a class="text-success" href="edit-comment.jsp?comment=<%=c.getComment_id()%>&action=activate" aria-label="Xem lưu trữ ">Chấp nhận</a></span>
+                                    <span class="activate"><a class="text-success" href="<%=WebConstant.getLocalHost()%>/ManagerCommentServlet?comment=<%=c.getComment_id()%>&action=activate" aria-label="Xem lưu trữ ">Chấp nhận</a></span>
                                     <%}%>
                                     <span class="edit"><a class="text-info" href="edit-comment.jsp?comment=<%=c.getComment_id()%>&action=edit" aria-label="Sửa">Chỉnh sửa</a> | </span>
                                     <span class="delete"><a href="" class="delete-tag aria-button-if-js text-danger" data-toggle="modal" data-target="#delete<%=c.getComment_id()%>" aria-label="Xóa" role="button">Xóa</a></span>

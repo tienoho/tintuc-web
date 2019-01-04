@@ -124,32 +124,10 @@
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/Admincp/*</url-pattern>
     </filter-mapping>
-
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
             <page-encoding>UTF-8</page-encoding>
         </jsp-property-group>
     </jsp-config>
-    <!--cấu hình kết nối-->
-    <env-entry>
-        <env-entry-name>url</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>localhost</env-entry-value>
-    </env-entry>
-    <env-entry>
-        <env-entry-name>DBname</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>tintuc</env-entry-value>
-    </env-entry>
-    <env-entry>
-        <env-entry-name>user</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>root</env-entry-value>
-    </env-entry>
-    <env-entry>
-        <env-entry-name>password</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value></env-entry-value>
-    </env-entry>
 </web-app>

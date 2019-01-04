@@ -207,7 +207,7 @@ public class PostDao {
     //Get cac bai viet xem nhieu nhat
     public ArrayList<Post> getListInPostView(int number) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql2="SELECT post.* FROM post left join hit_counter_post on post.post_id=hit_counter_post.id_post " +
+        String sql2="SELECT post.* FROM post left join hit_counter_post on post.post_id=hit_counter_post.post_id " +
                 "order by hit_counter desc limit ?";
         PreparedStatement ps = connection.prepareStatement(sql2);
         ps.setInt(1, number);

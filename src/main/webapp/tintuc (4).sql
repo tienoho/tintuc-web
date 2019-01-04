@@ -95,7 +95,7 @@ CREATE TABLE `hit_counter_post` (
 -- Dumping data for table `hit_counter_post`
 --
 
-INSERT INTO `hit_counter_post` (`id_post`, `hit_counter`) VALUES
+INSERT INTO `hit_counter_post` (post_id, `hit_counter`) VALUES
 (13, 67),
 (12, 21),
 (22, 1),

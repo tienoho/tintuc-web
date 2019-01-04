@@ -165,8 +165,7 @@ public class ManagerPostServlet extends HttpServlet {
         }
         response.sendRedirect(url);
     }
-    private void OpenUrl()
-    {
+    private void OpenUrl(){
         try {
             URL myURL = new URL(WebConstant.getLocalHost()+"/test123");
             URLConnection myURLConnection = myURL.openConnection();

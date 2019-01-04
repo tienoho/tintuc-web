@@ -21,6 +21,7 @@ public class CommentDao {
             comment.setComment_date(rs.getDate("comment_date"));
             comment.setComment_content(rs.getString("comment_content"));
             comment.setComment_parent(rs.getInt("comment_parent"));
+            comment.setComment_status(rs.getInt("comment_status"));
             list.add(comment);
         }
         connection.close();
@@ -42,6 +43,7 @@ public class CommentDao {
             comment.setComment_date(rs.getDate("comment_date"));
             comment.setComment_content(rs.getString("comment_content"));
             comment.setComment_parent(rs.getInt("comment_parent"));
+            comment.setComment_status(rs.getInt("comment_status"));
             list.add(comment);
         }
         connection.close();
@@ -64,6 +66,7 @@ public class CommentDao {
             comment.setComment_date(rs.getDate("comment_date"));
             comment.setComment_content(rs.getString("comment_content"));
             comment.setComment_parent(rs.getInt("comment_parent"));
+            comment.setComment_status(rs.getInt("comment_status"));
             list.add(comment);
         }
         connection.close();
@@ -86,6 +89,7 @@ public class CommentDao {
             comment.setComment_date(rs.getDate("comment_date"));
             comment.setComment_content(rs.getString("comment_content"));
             comment.setComment_parent(rs.getInt("comment_parent"));
+            comment.setComment_status(rs.getInt("comment_status"));
         }
         connection.close();
         return comment;
@@ -95,7 +99,7 @@ public class CommentDao {
         Connection connection = null;
         try {
             connection = DBConnect.getConnecttion();
-            String sql = "INSERT INTO comments(comment_post_id,comment_author,comment_author_email,comment_date,comment_content,comment_parent) VALUE (?,?,?,?,?,?)";
+            String sql = "INSERT INTO comments(comment_post_id,comment_author,comment_author_email,comment_date,comment_content,comment_parent,comment_status) VALUE (?,?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, c.getComment_post_id());
             ps.setNString(2, c.getComment_author());
@@ -103,6 +107,7 @@ public class CommentDao {
             ps.setDate(4, c.getComment_date());
             ps.setNString(5, c.getComment_content());
             ps.setInt(6, c.getComment_parent());
+            ps.setInt(7, c.getComment_status());
             int temp = ps.executeUpdate();
             connection.close();
             return temp == 1;
@@ -123,6 +128,22 @@ public class CommentDao {
             ps.setNString(3, c.getComment_author_email());
             ps.setNString(4, c.getComment_content());
             ps.setInt(5, c.getComment_id());
+            int temp = ps.executeUpdate();
+            connection.close();
+            return temp == 1;
+        } catch (Exception e) {
+            assert connection != null;
+            connection.close();
+            return false;
+        }
+    }
+    public boolean actionActivate(int commentId) throws SQLException {
+        Connection connection = null;
+        try {
+            connection = DBConnect.getConnecttion();
+            String sql = "UPDATE comments set comment_status=0 where comment_id=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, commentId);
             int temp = ps.executeUpdate();
             connection.close();
             return temp == 1;
