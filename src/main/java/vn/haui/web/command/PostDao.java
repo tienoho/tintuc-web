@@ -21,7 +21,7 @@ public class PostDao {
         PreparedStatement st = connection.prepareStatement(sql);
         // st.setInt(1,categoryID);
         ResultSet rs = st.executeQuery(sql);
-        ArrayList<Post> list = new ArrayList<Post>();
+        ArrayList<Post> list = new ArrayList<>();
         while (rs.next()) {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
@@ -45,7 +45,7 @@ public class PostDao {
         PreparedStatement st = connection.prepareStatement(sql);
         // st.setInt(1,categoryID);
         ResultSet rs = st.executeQuery(sql);
-        ArrayList<Post> list = new ArrayList<Post>();
+        ArrayList<Post> list = new ArrayList<>();
         while (rs.next()) {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
@@ -69,7 +69,7 @@ public class PostDao {
         PreparedStatement st = connection.prepareStatement(sql);
         // st.setInt(1,categoryID);
         ResultSet rs = st.executeQuery(sql);
-        ArrayList<Post> list = new ArrayList<Post>();
+        ArrayList<Post> list = new ArrayList<>();
         while (rs.next()) {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
@@ -95,7 +95,7 @@ public class PostDao {
         ps.setInt(1, firstResult);
         ps.setInt(2, maxResult);
         ResultSet rs = ps.executeQuery();
-        ArrayList<Post> list = new ArrayList<Post>();
+        ArrayList<Post> list = new ArrayList<>();
         while (rs.next()) {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
@@ -113,30 +113,6 @@ public class PostDao {
         return list;
     }
     //phan trang cho arraylist
-    public ArrayList<Post> getListProductByPages(int categoryID, int firstResult, int maxResult) throws SQLException {
-        Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM post WHERE category_id = '" + categoryID + "' limit ?,?";
-        PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setInt(1, firstResult);
-        ps.setInt(2, maxResult);
-        ResultSet rs = ps.executeQuery();
-        ArrayList<Post> list = new ArrayList<Post>();
-        while (rs.next()) {
-            Post post = new Post();
-            post.setPostID(rs.getInt("post_id"));
-            post.setAuthorID(rs.getInt("author_id"));
-            post.setPostDateTimestamp(rs.getTimestamp("post_date"));
-            post.setPostEditDate(rs.getTimestamp("post_edit_date"));
-            post.setPostContent(rs.getString("post_content"));
-            post.setPostTitle(rs.getString("post_title"));
-            post.setPostStatus(rs.getString("post_status"));
-            post.setPostSlug(rs.getString("post_slug"));
-            post.setPostImg(rs.getString("post_img"));
-            list.add(post);
-        }
-        connection.close();
-        return list;
-    }
     public ArrayList<Post> getListProductByPagesInTerm(int categoryID, int firstResult, int maxResult) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
         String sql = "SELECT * FROM post WHERE category_id = '" + categoryID + "' limit ?,?";
@@ -151,7 +127,7 @@ public class PostDao {
         ps.setInt(1, firstResult);
         ps.setInt(2, maxResult);
         ResultSet rs = ps.executeQuery();
-        ArrayList<Post> list = new ArrayList<Post>();
+        ArrayList<Post> list = new ArrayList<>();
         while (rs.next()) {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
@@ -173,7 +149,6 @@ public class PostDao {
     //Get cac bai viet lien quan
     public ArrayList<Post> getListInPostInterdepend(int categoryID, int firstResult, int maxResult,int post_id) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM post WHERE category_id = '" + categoryID + "' limit ?,?";
         String sql2="SELECT post.*,term.category_id FROM post,\n" +
                 "  (SELECT post_id,category.category_id FROM terms_relationships\n" +
                 "    inner join category\n" +
@@ -185,7 +160,7 @@ public class PostDao {
         ps.setInt(1, firstResult);
         ps.setInt(2, maxResult);
         ResultSet rs = ps.executeQuery();
-        ArrayList<Post> list = new ArrayList<Post>();
+        ArrayList<Post> list = new ArrayList<>();
         while (rs.next()) {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
@@ -212,7 +187,7 @@ public class PostDao {
         PreparedStatement ps = connection.prepareStatement(sql2);
         ps.setInt(1, number);
         ResultSet rs = ps.executeQuery();
-        ArrayList<Post> list = new ArrayList<Post>();
+        ArrayList<Post> list = new ArrayList<>();
         while (rs.next()) {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
@@ -236,7 +211,7 @@ public class PostDao {
         PreparedStatement ps = connection.prepareStatement(sql2);
         ps.setInt(1, number);
         ResultSet rs = ps.executeQuery();
-        ArrayList<Post> list = new ArrayList<Post>();
+        ArrayList<Post> list = new ArrayList<>();
         while (rs.next()) {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
@@ -265,7 +240,7 @@ public class PostDao {
         ps.setInt(1, firstResult);
         ps.setInt(2, maxResult);
         ResultSet rs = ps.executeQuery();
-        ArrayList<Post> list = new ArrayList<Post>();
+        ArrayList<Post> list = new ArrayList<>();
         while (rs.next()) {
             Post post = new Post();
             post.setPostID(rs.getInt("post_id"));
@@ -318,22 +293,8 @@ public class PostDao {
         connection.close();
         return count;
     }
-    public int getCountPostByCategoy(int categoryID) throws SQLException {
-        Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT count(post_id) FROM post WHERE category_id = '" + categoryID + "'";
-
-        PreparedStatement ps = connection.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        int count = 0;
-        while (rs.next()) {
-            count = rs.getInt(1);
-        }
-        connection.close();
-        return count;
-    }
     public int getCountPostByCategoyTerm(int categoryID) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT count(post_id) FROM post WHERE category_id = '" + categoryID + "'";
         String sql2="SELECT count(post.post_id) FROM post,\n" +
                 "  (SELECT post_id FROM terms_relationships\n" +
                 "    inner join category\n" +
@@ -476,20 +437,11 @@ public class PostDao {
         return "";
     }
     public java.sql.Date GetDateNow()    {
-
         java.util.Date myDate = (Calendar.getInstance().getTime());
-        java.sql.Date sqlDateNow = new java.sql.Date(myDate.getTime());
-        return sqlDateNow;
+        return new Date(myDate.getTime());
     }
     public java.sql.Timestamp GetTimestampNow()    {
-
         java.util.Date myDate = (Calendar.getInstance().getTime());
-        java.sql.Timestamp sqlDateNow = new java.sql.Timestamp(myDate.getTime());
-        return sqlDateNow;
-    }
-    public static void main(String[] args) {
-        java.util.Date myDate = (Calendar.getInstance().getTime());
-        java.sql.Timestamp sqlDateNow = new java.sql.Timestamp(myDate.getTime());
-        System.out.println(sqlDateNow);
+        return new Timestamp(myDate.getTime());
     }
 }

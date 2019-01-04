@@ -11,7 +11,7 @@ public class CommentDao {
         String sql = "SELECT * FROM comments";
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
-        ArrayList<Comment> list = new ArrayList<Comment>();
+        ArrayList<Comment> list = new ArrayList<>();
         while (rs.next()) {
             Comment comment=new Comment();
             comment.setComment_id(rs.getInt("comment_id"));
@@ -33,7 +33,7 @@ public class CommentDao {
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, post_id);
         ResultSet rs = ps.executeQuery();
-        ArrayList<Comment> list = new ArrayList<Comment>();
+        ArrayList<Comment> list = new ArrayList<>();
         while (rs.next()) {
             Comment comment=new Comment();
             comment.setComment_id(rs.getInt("comment_id"));
@@ -56,7 +56,7 @@ public class CommentDao {
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, comment_parent);
         ResultSet rs = ps.executeQuery();
-        ArrayList<Comment> list = new ArrayList<Comment>();
+        ArrayList<Comment> list = new ArrayList<>();
         while (rs.next()) {
             Comment comment=new Comment();
             comment.setComment_id(rs.getInt("comment_id"));

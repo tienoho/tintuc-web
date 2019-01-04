@@ -17,10 +17,9 @@ import java.sql.SQLException;
 @WebServlet("/ManagerCommentServlet")
 
 public class ManagerCommentServlet extends HttpServlet {
-    Comment comment;
-    CommentDao commentDao = new CommentDao();
+    private CommentDao commentDao = new CommentDao();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         String url = WebConstant.getLocalHost() + "/Admincp/edit-comment.jsp", error = "", result = "", error_slug = "";
@@ -30,6 +29,7 @@ public class ManagerCommentServlet extends HttpServlet {
 
         HttpSession session = request.getSession(false);
         try {
+            Comment comment;
             switch (command) {
                 case "insert":
                     if (commentContent.equals("")) {
@@ -65,7 +65,7 @@ public class ManagerCommentServlet extends HttpServlet {
                         comment.setComment_author(request.getParameter("comment-author"));
                         comment.setComment_status(Integer.parseInt(request.getParameter("comment-status")));
                         commentDao.update(comment);
-                        result = "Cập nhập thành công"+comment.getComment_status();
+                        result = "Cập nhập thành công"+ comment.getComment_status();
                         session.setAttribute("result", result);
                         url = WebConstant.getLocalHost() + "/Admincp/edit-comment.jsp?comment=" + comment.getComment_id() + "&action=edit";
                     }
@@ -87,7 +87,7 @@ public class ManagerCommentServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //String command = request.getParameter("command");
         String action = request.getParameter("action");
         String url = WebConstant.getLocalHost() + "/Admincp/comment.jsp";

@@ -22,10 +22,10 @@ import java.util.Scanner;
 
 @WebServlet("/ManagerPostServlet")
 public class ManagerPostServlet extends HttpServlet {
-    PostDao postDao = new PostDao();
-    TermsRelationshipsDao termsRelationshipsDao = new TermsRelationshipsDao();
+    private PostDao postDao = new PostDao();
+    private TermsRelationshipsDao termsRelationshipsDao = new TermsRelationshipsDao();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
 
@@ -39,16 +39,15 @@ public class ManagerPostServlet extends HttpServlet {
 
         String postSlug = "";
         HttpSession session = request.getSession(false);
-        if (postDao.checkPostSlug(postSlug) && postSlug != "") {
+        if (postDao.checkPostSlug(postSlug) && !postSlug.equals("")) {
             error_slug = "Trường này phải là duy nhất";
-            request.setAttribute("error-slug", error_slug);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-            rd.forward(request, response);
+            session.setAttribute("error_slug", error_slug);
+            response.sendRedirect(url);
         }
         try {
             switch (command) {
                 case "insert":
-                    if (postTitle.equals("") || postTitle == null) {
+                    if (postTitle.equals("")) {
                         error = "Không thể bỏ trống tên tiêu đề !";
                         session.setAttribute("error", error);
                     } else {
@@ -84,7 +83,7 @@ public class ManagerPostServlet extends HttpServlet {
                     OpenUrl();
                     break;
                 case "update":
-                    if (postTitle.equals("") || postTitle == null) {
+                    if (postTitle.equals("")) {
                         error = "Không thể bỏ trống tên tiêu đề !";
                         //request.setAttribute("error", error);
                         session.setAttribute("error", error);
@@ -133,8 +132,9 @@ public class ManagerPostServlet extends HttpServlet {
                     //url = "/Admincp/post.jsp";
                     break;
                 default:
-                    result = "Thêm không thành công";
+                    result = "Không thành công";
                     //response.sendRedirect(WebConstant.localHost + "/Admincp/category.jsp");
+                    session.setAttribute("result", result);
                     break;
             }
         } catch (Exception ex) {
@@ -149,7 +149,7 @@ public class ManagerPostServlet extends HttpServlet {
         //rd.forward(request, response);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String command = request.getParameter("command");
         String url="";
         switch (command) {
@@ -170,7 +170,7 @@ public class ManagerPostServlet extends HttpServlet {
             URL myURL = new URL(WebConstant.getLocalHost()+"/test123");
             URLConnection myURLConnection = myURL.openConnection();
             myURLConnection.connect();
-            String content = null;
+            String content;
             Scanner scanner = new Scanner(myURLConnection.getInputStream());
             scanner.useDelimiter("\\Z");
             content = scanner.next();

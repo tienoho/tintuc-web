@@ -12,7 +12,7 @@ public class HitCounterDao {
         String sql = "SELECT * FROM hit_counter_post";
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
-        ArrayList<HitCounter> list = new ArrayList<HitCounter>();
+        ArrayList<HitCounter> list = new ArrayList<>();
         while (rs.next()) {
             HitCounter hitCounter = new HitCounter();
             hitCounter.setIdPost(rs.getInt("idPost"));
