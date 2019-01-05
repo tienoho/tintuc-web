@@ -14,6 +14,7 @@
 <%
     PostDao postDao = new PostDao();
     CategoryDao categoryDao = new CategoryDao();
+    Category categoryTerm=null;
     ArrayList<Category> categoriesParent = categoryDao.getListCategoryParent();
     ArrayList<Post> postsNew = postDao.getListAllPostNew(WebConstant.getPostNumberHome());
     UsersDao usersDao=new UsersDao();
@@ -34,6 +35,7 @@
                 <%
                     int dem = 0;
                     for (Post p : postDao.getListAllPostNew(4)) {
+                        categoryTerm=categoryDao.getCategoryTerms(p.getPostID());
                         String extendsImg = p.getPostImg();
                         if (extendsImg.contains(".")) {
                             extendsImg = extendsImg.substring(extendsImg.lastIndexOf("."), extendsImg.length());
@@ -52,7 +54,7 @@
                         </a>
                         <div class="caption caption-large">
                                     <span class="cat-title cat-4">
-                                        <a href="category/fashion/index.html" title="Fashion">Fashion</a>
+                                        <a href="<%=WebConstant.getLocalHost()%>/Category/<%=categoryTerm.getCategorySlug()%>" title="<%=categoryTerm.getCategoryName()%>"><%=categoryTerm.getCategoryName()%></a>
                                     </span>
                             <h3><a href="<%=WebConstant.getLocalHost()%>/post/<%=p.getPostSlug()%>" class="item-heading"><%=p.getPostTitle()%></a></h3>
                             <time class="the-date" datetime="<%=p.getPostDateTimestamp()%>"><%=p.getPostDateTimestamp()%></time>
@@ -72,7 +74,7 @@
                         </a>
                         <div class="caption caption-small">
                                     <span class="cat-title cat-4">
-                                        <a href="category/fashion/index.html" title="Fashion">Fashion</a>
+                                        <a href="<%=WebConstant.getLocalHost()%>/Category/<%=categoryTerm.getCategorySlug()%>" title="<%=categoryTerm.getCategoryName()%>"><%=categoryTerm.getCategoryName()%></a>
                                     </span>
                             <h3>
                                 <a href="<%=WebConstant.getLocalHost()%>/post/<%=p.getPostSlug()%>" class="item-heading heading-small"><%=p.getPostTitle()%></a>
@@ -91,7 +93,7 @@
                                  sizes="(max-width: 235px) 100vw, 235px"/>
                         </a>
                         <div class="caption caption-small">
-                            <span class="cat-title cat-7"><a href="category/celebrities/index.html" title="Celebrities">Celebrities</a></span>
+                            <span class="cat-title cat-7"><a href="<%=WebConstant.getLocalHost()%>/Category/<%=categoryTerm.getCategorySlug()%>" title="<%=categoryTerm.getCategoryName()%>"><%=categoryTerm.getCategoryName()%></a></span>
                             <h3>
                                 <a href="<%=WebConstant.getLocalHost()%>/post/<%=p.getPostSlug()%>" class="item-heading heading-small"><%=p.getPostTitle()%></a>
                             </h3>

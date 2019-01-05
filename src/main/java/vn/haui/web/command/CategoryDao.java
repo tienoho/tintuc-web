@@ -2,6 +2,7 @@ package vn.haui.web.command;
 
 import vn.haui.web.connect.DBConnect;
 import vn.haui.web.model.Category;
+import vn.haui.web.model.TermsRelationships;
 
 import java.sql.*;
 import java.text.Normalizer;
@@ -33,6 +34,7 @@ public class CategoryDao {
         connection.close();
         return list;
     }
+
     public ArrayList<Category> getListCategoryParent() throws SQLException {
         Connection connection = DBConnect.getConnecttion();
         String sql = "SELECT * FROM category where category_parent=0 ";
@@ -51,9 +53,10 @@ public class CategoryDao {
         connection.close();
         return list;
     }
+
     public ArrayList<Category> getListCategoryChildren(int categoryParent) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM category where category_parent="+categoryParent;
+        String sql = "SELECT * FROM category where category_parent=" + categoryParent;
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
         ArrayList<Category> list = new ArrayList<Category>();
@@ -69,9 +72,10 @@ public class CategoryDao {
         connection.close();
         return list;
     }
+
     public Category getCategory(int category_id) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM category WHERE category_id="+category_id;
+        String sql = "SELECT * FROM category WHERE category_id=" + category_id;
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         ResultSet rs = preparedStatement.executeQuery(sql);
         Category category = null;
@@ -85,18 +89,19 @@ public class CategoryDao {
         }
         return category;
     }
+
     // get name category
     public String getCategoryName(String category_slug) {
         Connection connection = DBConnect.getConnecttion();
         String sql = "SELECT category_name FROM category WHERE category_slug='" + category_slug + "'";
         PreparedStatement preparedStatement;
-        String nameCategory="";
+        String nameCategory = "";
         try {
             preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
 
-                nameCategory=rs.getString("category_name");
+                nameCategory = rs.getString("category_name");
             }
             connection.close();
         } catch (SQLException e) {
@@ -105,6 +110,7 @@ public class CategoryDao {
         }
         return nameCategory;
     }
+
     //kiểm tra xem category_slug  đã tồn tại hay chưa
     public boolean checkCategorySlug(String category_slug) {
         Connection connection = DBConnect.getConnecttion();
@@ -122,6 +128,38 @@ public class CategoryDao {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public Category getCategoryTerms(int postId) throws SQLException {
+        Category category=null;
+        Connection connection = DBConnect.getConnecttion();
+        String sql="SELECT * \n" +
+                "FROM terms_relationships ,category\n" +
+                "where category.category_id=terms_relationships.category_id\n" +
+                "      and terms_relationships.post_id="+postId;
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet rs = preparedStatement.executeQuery(sql);
+        while (rs.next()) {
+            int categoryParent=rs.getInt("category_parent");
+            if(categoryParent==0){
+                category = new Category();
+                category.setCategoryID(rs.getInt("category_id"));
+                category.setCategoryName(rs.getString("category_name"));
+                category.setCategoryDes(rs.getString("category_des"));
+                category.setCategorySlug(rs.getString("category_slug"));
+                category.setCategoryParent(rs.getInt("category_parent"));
+                break;
+            }else {
+                category = new Category();
+                category.setCategoryID(rs.getInt("category_id"));
+                category.setCategoryName(rs.getString("category_name"));
+                category.setCategoryDes(rs.getString("category_des"));
+                category.setCategorySlug(rs.getString("category_slug"));
+                category.setCategoryParent(rs.getInt("category_parent"));
+                break;
+            }
+        }
+        return category;
     }
 
     public boolean insert(Category c) throws SQLException {
@@ -180,47 +218,47 @@ public class CategoryDao {
             return false;
         }
     }
-    public String createCategorySlug(String categoryName)
-    {
-        categoryName=categoryName.replaceAll("  ", " ").trim();
+
+    public String createCategorySlug(String categoryName) {
+        categoryName = categoryName.replaceAll("  ", " ").trim();
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
-        String dateTimeNow=sdf.format(cal.getTime());
+        String dateTimeNow = sdf.format(cal.getTime());
         try {
             String temp = Normalizer.normalize(categoryName, Normalizer.Form.NFD);
             Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
 
-            String slug= pattern.matcher(temp).replaceAll("").toLowerCase().replaceAll(" ", "-")
+            String slug = pattern.matcher(temp).replaceAll("").toLowerCase().replaceAll(" ", "-")
                     .replaceAll("đ", "d").replace("?", "");
-            if(checkCategorySlug(slug))
-                slug=slug+"-"+dateTimeNow;
+            if (checkCategorySlug(slug))
+                slug = slug + "-" + dateTimeNow;
             return slug;
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return "";
     }
+
     public ArrayList<Category> S() throws SQLException {
-        ArrayList<Category>categoriesParent= new CategoryDao().getListCategoryParent();
-        ArrayList<Category>categories= new ArrayList<>();
-        for (Category c:categoriesParent) {
+        ArrayList<Category> categoriesParent = new CategoryDao().getListCategoryParent();
+        ArrayList<Category> categories = new ArrayList<>();
+        for (Category c : categoriesParent) {
             categories.add(c);
-            for(Category c1:new CategoryDao().getListCategoryChildren(c.getCategoryID()))
-            {
+            for (Category c1 : new CategoryDao().getListCategoryChildren(c.getCategoryID())) {
                 categories.add(c1);
-                for(Category c2:new CategoryDao().getListCategoryChildren(c1.getCategoryID()))
-                    {
+                for (Category c2 : new CategoryDao().getListCategoryChildren(c1.getCategoryID())) {
                     categories.add(c2);
                 }
             }
         }
         return categories;
     }
+
     public ArrayList<Category> getListCategoryByPost(int postId) throws SQLException {
         Connection connection = DBConnect.getConnecttion();
         String sql = "SELECT category.* FROM terms_relationships inner join category " +
                 "on category.category_id=terms_relationships.category_id " +
-                "and post_id="+postId;
+                "and post_id=" + postId;
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(sql);
         ArrayList<Category> list = new ArrayList<Category>();

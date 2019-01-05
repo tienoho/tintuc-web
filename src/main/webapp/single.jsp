@@ -8,6 +8,8 @@
 <%
     UsersDao usersDao = new UsersDao();
     PostDao postDao = new PostDao();
+    CategoryDao categoryDao=new CategoryDao();
+    Category category=null;
     TermsRelationshipsDao termsRelationshipsDao = new TermsRelationshipsDao();
     String urlPath = "";
     String post_id = "";
@@ -47,6 +49,7 @@
     }
     CommentDao commentDao = new CommentDao();
     ArrayList<Comment> comments = commentDao.getListCommentByPost(Integer.parseInt(post_id));
+    int AuthorID=0;
 %>
 
 <%--header--%>
@@ -56,13 +59,15 @@
     <div class="row">
         <div class="col-8 main-content">
             <% for (Post p : postDao.getListPostByCategory(WebConstant.textPostID, Integer.parseInt(post_id))) {
+                AuthorID=p.getAuthorID();
+                category=categoryDao.getCategoryTerms(p.getPostID());
             %>
             <article id="post-<%=p.getPostID()%>"
                      class="post-<%=p.getPostID()%> post type-post status-publish format-standard has-post-thumbnail category-fashion tag-culture tag-fashion tag-featured tag-fitness tag-leisure tag-lifestyle">
                 <header class="post-header-b cf">
                     <div class="category cf">
                             <span class="cat-title cat-4">
-                                <a href="#" title="Fashion">Fashion</a>
+                                <a href="<%=WebConstant.getLocalHost()%>/Category/<%=category.getCategorySlug()%>" title="<%=category.getCategoryName()%>"><%=category.getCategoryName()%></a>
                             </span>
                     </div>
                     <div class="heading cf">
@@ -193,11 +198,11 @@
             <div class="author-box">
                 <h3 class="section-head">Thông tin tác giả</h3>
                 <section class="author-info">
-                    <img width="100" height="100" alt="Kate Hanson"
+                    <img width="100" height="100" alt="<%=usersDao.getName(AuthorID)%>"
                          class="avatar avatar-100 wp-user-avatar wp-user-avatar-100 alignnone photo"
-                         srcset="<%=WebConstant.getLocalHost()%>/images/3874418485_26e0893ff4_z-150x150.jpg"/>
+                         srcset="<%=WebConstant.getLocalHost()%><%=usersDao.getImageId(AuthorID)%>"/>
                     <div class="description">
-                        <a href="" title="Posts by Kate Hanson" rel="author">Kate Hanson</a>
+                        <a href="" title="Posts by Kate Hanson" rel="author"><%=usersDao.getName(AuthorID)%></a>
                         <ul class="social-icons">
                             <li><a href="<%=WebConstant.getLocalHost()%>" class="icon fa fa-home" title="Website"> <span
                                     class="visuallyhidden">Website</span></a></li>
@@ -354,7 +359,7 @@
                                 <input type='hidden' name='comment-parent' id='comment-parent' value='0'/>
                                 <input type='hidden' name='command' id='command' value='insert'/>
                                 <input type='hidden' name='urlPath' value='<%=urlPath%>'/>
-                                <input name="submit" type="submit" id="comment-submit" class="submit" value="Post Comment"/>
+                                <input name="submit" type="submit" id="comment-submit" class="submit" value="Bình luận"/>
                             </p>
                         </form>
                     </div>

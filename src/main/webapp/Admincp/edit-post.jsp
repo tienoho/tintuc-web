@@ -45,15 +45,11 @@
 %>
 <script>
     function addTag() {
-        var tag=document.getElementById('btn-input').value;
-        console.log("tag: "+tag);
-        var listTag;
-        var x;
+        var tag=document.getElementById('input-tag').value;
+        var listTag;var x;
         if(tag.includes(',')===true){
             listTag=tag.split(',');
-            console.log("listTag: "+listTag);
             for (x in listTag){
-                console.log("x: "+listTag[x]);
                 var tagLi = '<li>'+listTag[x]+'</li>';
                 if(tag!=""){
                     document.getElementById('tagchecklist').innerHTML += tagLi;
@@ -61,11 +57,62 @@
             }
         }else {
             var tagLi = '<li>'+tag+'</li>';
-            console.log("tagLi: "+listTag);
-            if(tag!=""){
-                document.getElementById('tagchecklist').innerHTML += tagLi;
-            }
+            if(tag!=""){document.getElementById('tagchecklist').innerHTML += tagLi;}
         }
+    }
+    function delete_tag_li(item) {
+        //xóa thẻ sau 2 giây
+        setTimeout(function(){
+            if ($('#'+item).length > 0) {
+                $('#'+item).remove();
+            }
+        }, 1000)
+    }
+</script>
+<script>
+    function BrowseServer(startupPath, functionData) {
+        // You can use the "CKFinder" class to render CKFinder in a page:
+        var finder = new CKFinder();
+        //Startup path in a form: "Type:/path/to/directory/"
+        finder.startupPath = startupPath;
+        // Name of a function which is called when a file is selected in CKFinder.
+        finder.selectActionFunction = SetFileField;
+        // Additional data to be passed to the selectActionFunction in a second argument.
+        // We'll use this feature to pass the Id of a field that will be updated.
+        finder.selectActionData = functionData;
+        // Name of a function which is called when a thumbnail is selected in CKFinder.
+        finder.selectThumbnailActionFunction = ShowThumbnails;
+        // Launch CKFinder
+        finder.popup();
+    }
+
+    // This is a sample function which is called when a file is selected in CKFinder.
+    function SetFileField(fileUrl, data) {
+        document.getElementById(data["selectActionData"]).value = fileUrl;
+        ShowThumbnailsaa(fileUrl);
+    }
+
+    // This is a sample function which is called when a thumbnail is selected in CKFinder.
+    function ShowThumbnails(fileUrl, data) {   // this = CKFinderAPI
+        var sFileName = this.getSelectedFile().name;
+        document.getElementById('thumbnails').innerHTML +=
+            '<div class="thumb">' +
+            '<img src="' + fileUrl + '" />' +
+            '<div class="caption">' +
+            '<a href="' + data["fileUrl"] + '" target="_blank">' + sFileName + '</a> (' + data["fileSize"] + 'KB)' +
+            '</div>' +
+            '</div>';
+        document.getElementById('preview').style.display = "";
+        // It is not required to return any value.
+        // When false is returned, CKFinder will not close automatically.
+        return false;
+    }
+    function ShowThumbnailsaa(imgUrl) {
+        var htmlll = '<div class="thumb">' +
+            '<img height= "150px" width= "150px" src="<%=WebConstant.getLocalHost()%>' + imgUrl + '" />' +
+            '</div>';
+        document.getElementById('thumbnails').innerHTML = htmlll;
+        document.getElementById('preview').style.display = "";
     }
 </script>
 <div id="page-wrapper">
@@ -121,7 +168,6 @@
                     <p class="help-block"></p>
                 </div>
                 <span name="category-result"></span>
-
             </div>
             <!-- /.col-lg-4 (nested) -->
             <div class="col-lg-3">
@@ -194,16 +240,18 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <div class="input-group">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="tag here..."/>
+                                <input id="input-tag" type="text" class="form-control input-sm" placeholder="tag here..."/>
                                 <span class="input-group-btn">
-                                    <input type="button" class="btn btn-warning btn-sm" id="btn-chat" value="Thêm" onclick="addTag();"/>
+                                    <input type="button" class="btn btn-warning btn-sm" id="btn-add-tag" value="Thêm" onclick="addTag();"/>
                                 </span>
                             </div>
                             <p class="help-block">Phân cách các thẻ bằng dấu phẩy (,).</p>
                         </div>
                         <ul class="tagchecklist" id="tagchecklist" role="list">
-                            <li name="item-tag">a</li>
-                            <li name="item-tag">dsss</li>
+                            <li name="item-tag" id="item-tag-1">a <button type="button" onclick="delete_tag_li('item-tag-1');" class="btn btn-warning btn-circle" style="width: 15px;height: 15px;padding: 0px;"><i class="fa fa-times"></i>
+                            </button></li>
+                            <li name="item-tag" id="item-tag-2">dsss <button type="button" onclick="delete_tag_li('item-tag-1');" class="btn btn-warning btn-circle" style="width: 15px;height: 15px;padding: 0px;"><i class="fa fa-times"></i>
+                            </button></li>
                         </ul>
                     </div>
                     <!-- /.panel-body -->
@@ -213,52 +261,6 @@
                     <div class="panel-heading">
                         <i class="fa fa-bell fa-fw"></i>Ảnh đại diện
                     </div>
-                    <script>
-                        function BrowseServer(startupPath, functionData) {
-                            // You can use the "CKFinder" class to render CKFinder in a page:
-                            var finder = new CKFinder();
-                            //Startup path in a form: "Type:/path/to/directory/"
-                            finder.startupPath = startupPath;
-                            // Name of a function which is called when a file is selected in CKFinder.
-                            finder.selectActionFunction = SetFileField;
-                            // Additional data to be passed to the selectActionFunction in a second argument.
-                            // We'll use this feature to pass the Id of a field that will be updated.
-                            finder.selectActionData = functionData;
-                            // Name of a function which is called when a thumbnail is selected in CKFinder.
-                            finder.selectThumbnailActionFunction = ShowThumbnails;
-                            // Launch CKFinder
-                            finder.popup();
-                        }
-
-                        // This is a sample function which is called when a file is selected in CKFinder.
-                        function SetFileField(fileUrl, data) {
-                            document.getElementById(data["selectActionData"]).value = fileUrl;
-                            ShowThumbnailsaa(fileUrl);
-                        }
-
-                        // This is a sample function which is called when a thumbnail is selected in CKFinder.
-                        function ShowThumbnails(fileUrl, data) {   // this = CKFinderAPI
-                            var sFileName = this.getSelectedFile().name;
-                            document.getElementById('thumbnails').innerHTML +=
-                                '<div class="thumb">' +
-                                '<img src="' + fileUrl + '" />' +
-                                '<div class="caption">' +
-                                '<a href="' + data["fileUrl"] + '" target="_blank">' + sFileName + '</a> (' + data["fileSize"] + 'KB)' +
-                                '</div>' +
-                                '</div>';
-                            document.getElementById('preview').style.display = "";
-                            // It is not required to return any value.
-                            // When false is returned, CKFinder will not close automatically.
-                            return false;
-                        }
-                        function ShowThumbnailsaa(imgUrl) {
-                            var htmlll = '<div class="thumb">' +
-                                '<img height= "150px" width= "150px" src="<%=WebConstant.getLocalHost()%>' + imgUrl + '" />' +
-                                '</div>';
-                            document.getElementById('thumbnails').innerHTML = htmlll;
-                            document.getElementById('preview').style.display = "";
-                        }
-                    </script>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div id="preview" style="display:none">
