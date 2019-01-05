@@ -9,10 +9,10 @@
 <head>
     <head>
         <meta charset="utf-8" />
-        <title>Trang 404 - TED Engineering Documents</title>
-        <meta name="author" content="TED" />
-        <meta name="keywords" content="TED Engineering Documents" />
-        <meta name="description" content="TED Engineering Documents" />
+        <title>Lỗi 404 - <%=WebConstant.getBlogname()%></title>
+        <meta name="author" content="<%=WebConstant.getBlogname()%>" />
+        <meta name="keywords" content="<%=WebConstant.getBlogname()%>" />
+        <meta name="description" content="<%=WebConstant.getBlogname()%>" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <style>
 

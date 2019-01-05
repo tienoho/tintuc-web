@@ -279,11 +279,11 @@
                                                     <div class="post">
                                                         <a href="">
                                                             <img width="104" height="69"
-                                                                 src="<%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-104x69.jpg"
+                                                                 src="<%=WebConstant.getLocalHost()%>/upload/images/shutterstock_518581786-104x69.jpg"
                                                                  class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
                                                                  alt="shutterstock_518581786"
                                                                  title="Trending: Bodysuits and Faded Friendship Jeans"
-                                                                 srcset="<%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-104x69.jpg 104w, <%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-300x200.jpg 300w, <%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-1000x667.jpg 1000w, <%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-702x459.jpg 702w, <%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-214x140.jpg 214w, <%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-104x69@2x.jpg 208w"
+                                                                 srcset="<%=WebConstant.getLocalHost()%>/upload/images/shutterstock_518581786-104x69.jpg 104w, <%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-300x200.jpg 300w, <%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-1000x667.jpg 1000w, <%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-702x459.jpg 702w, <%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-214x140.jpg 214w, <%=WebConstant.getLocalHost()%>/images/shutterstock_518581786-104x69@2x.jpg 208w"
                                                                  sizes="(max-width: 104px) 100vw, 104px"/>
                                                         </a>
                                                         <div class="content">
@@ -296,11 +296,11 @@
                                                     <div class="post">
                                                         <a href="">
                                                             <img width="104" height="69"
-                                                                 src="<%=WebConstant.getLocalHost()%>/images/shutterstock_350007890-104x69.jpg"
+                                                                 src="<%=WebConstant.getLocalHost()%>/upload/images/shutterstock_350007890-104x69.jpg"
                                                                  class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
                                                                  alt="shutterstock_350007890"
                                                                  title="Summer Style: Chunky Knit For Leather Suits"
-                                                                 srcset="<%=WebConstant.getLocalHost()%>/images/shutterstock_350007890-104x69.jpg 104w, <%=WebConstant.getLocalHost()%>/images/shutterstock_350007890-300x200.jpg 300w, <%=WebConstant.getLocalHost()%>/images/shutterstock_350007890-1000x667.jpg 1000w, <%=WebConstant.getLocalHost()%>/images/shutterstock_350007890-702x459.jpg 702w, <%=WebConstant.getLocalHost()%>/images/shutterstock_350007890-214x140.jpg 214w"
+                                                                 srcset="<%=WebConstant.getLocalHost()%>/upload/images/shutterstock_350007890-104x69.jpg 104w, <%=WebConstant.getLocalHost()%>/images/shutterstock_350007890-300x200.jpg 300w, <%=WebConstant.getLocalHost()%>/images/shutterstock_350007890-1000x667.jpg 1000w, <%=WebConstant.getLocalHost()%>/images/shutterstock_350007890-702x459.jpg 702w, <%=WebConstant.getLocalHost()%>/images/shutterstock_350007890-214x140.jpg 214w"
                                                                  sizes="(max-width: 104px) 100vw, 104px"/>
                                                         </a>
                                                         <div class="content">
