@@ -1,10 +1,4 @@
-<%@ page import="vn.haui.web.common.WebConstant" %><%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 26/11/2018
-  Time: 4:36 CH
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="vn.haui.web.common.WebConstant" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>

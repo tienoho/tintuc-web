@@ -4,13 +4,7 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.haui.web.command.UsersDao" %>
-<%@ page import="vn.haui.web.command.PostDao" %><%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 27/12/2018
-  Time: 10:57 SA
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="vn.haui.web.command.PostDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>

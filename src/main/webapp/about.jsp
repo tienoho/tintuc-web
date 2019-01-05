@@ -1,10 +1,4 @@
-<%@ page import="vn.haui.web.common.WebConstant" %><%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 03/01/2019
-  Time: 11:35 SA
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="vn.haui.web.common.WebConstant" %>
 <%
     String result = "", error = "";
     if (session.getAttribute("result") != null) {

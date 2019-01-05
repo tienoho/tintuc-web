@@ -19,14 +19,6 @@
     ArrayList<Post> postsNew = postDao.getListAllPostNew(WebConstant.getPostNumberHome());
     UsersDao usersDao=new UsersDao();
 %>
-<script>
-    $data = '<div class="aa"></div>';
-    console.log(JSON.stringify($data));
-    var bunyad_preload2 =
-        {"1": {"4": "","10": "","9": "","12": ""},
-        "2": {"10": "","9": "","7": ""}
-    };
-</script>
 <div class="main-featured">
     <div class="wrap cf">
         <div class="featured-grid featured-grid-b" data-animation="fade" data-animation-speed="600"

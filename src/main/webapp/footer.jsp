@@ -14,7 +14,6 @@
     PostDao postDao=new PostDao();
     List<Post> posts=postDao.getListProductByPagesInTerm(WebFooter.getCategory_id(),1,WebFooter.getCategory_number());
     SocialDao socialDao=new SocialDao();
-
 %>
 <footer class="main-footer">
     <div class="wrap">

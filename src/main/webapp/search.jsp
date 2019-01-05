@@ -6,13 +6,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vn.haui.web.utils.tool" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.sql.SQLException" %><%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 25/12/2018
-  Time: 11:51 SA
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
