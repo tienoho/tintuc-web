@@ -104,9 +104,7 @@
                     <i class="fa fa-angle-left"></i>
                     <span class="visuallyhidden">Previous</span>
                 </a>
-                <%}%>
-                <%
-                    for (int i = 1; i <= (cout) + 1; i++) {
+                <%}for (int i = 1; i <= (cout) + 1; i++) {
                         if (i == pages) {
                 %>
                 <span class='page-numbers current'><%=i%></span>
@@ -116,8 +114,7 @@
                 <a class='page-numbers'
                    href='<%=WebConstant.getLocalHost()%>/Category/categorySlug?categoryID=<%=category_id%>&pages=<%=i%>'><%=i%>
                 </a>
-                <%
-                        }
+                <%}
                     }
                     if (pages >= cout && cout > 1) {
                 %>
@@ -126,10 +123,7 @@
                     <span class="visuallyhidden">Next</span>
                     <i class="fa fa-angle-right"></i>
                 </a>
-                <%
-                    }
-                %>
-
+                <%}%>
             </div>
         </div>
         <jsp:include page="sidebar-category.jsp"/>
