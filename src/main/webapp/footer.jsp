@@ -68,62 +68,62 @@
                 <div class="flickr-widget">
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/43393062345/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/43393062345_1ddb2dcc98_s.jpg" alt="Ascend"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/43393062345_1ddb2dcc98_s.jpg" alt="Ascend"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/35635796836/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/35635796836_ca0a463fa2_s.jpg" alt="terns"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/35635796836_ca0a463fa2_s.jpg" alt="terns"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/31501807183/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/31501807183_fbf20ecb7e_s.jpg" alt="casual"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/31501807183_fbf20ecb7e_s.jpg" alt="casual"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/27665237533/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/27665237533_674219b6b9_s.jpg" alt="riders on the storm"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/27665237533_674219b6b9_s.jpg" alt="riders on the storm"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/23774500140/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/23774500140_5a2c4858c4_s.jpg" alt="chairman"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/23774500140_5a2c4858c4_s.jpg" alt="chairman"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/24070220745/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/24070220745_ffca32f781_s.jpg" alt="mood"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/24070220745_ffca32f781_s.jpg" alt="mood"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/23702470069/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/23702470069_c00dd38001_s.jpg" alt="monument"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/23702470069_c00dd38001_s.jpg" alt="monument"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/23987688351/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/23987688351_7967fb2e21_s.jpg" alt="liquid cancer"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/23987688351_7967fb2e21_s.jpg" alt="liquid cancer"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/23702464939/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/23702464939_3178441198_s.jpg" alt="blue"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/23702464939_3178441198_s.jpg" alt="blue"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/23961993242/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/23961993242_4591cddafa_s.jpg" alt="basement"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/23961993242_4591cddafa_s.jpg" alt="basement"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/24044103816/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/24044103816_43d4ea4e25_s.jpg" alt="ditch"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/24044103816_43d4ea4e25_s.jpg" alt="ditch"/>
                         </a>
                     </div>
                     <div class="flickr_badge_image">
                         <a href="http://www.flickr.com/photos/53228952@N08/23962165962/">
-                            <img src="<%=WebConstant.getLocalHost()%>/images/static/23962165962_43b337129f_s.jpg" alt="stars"/>
+                            <img src="<%=WebConstant.getLocalHost()%>/upload/images/static/23962165962_43b337129f_s.jpg" alt="stars"/>
                         </a>
                     </div>
                 </div>
