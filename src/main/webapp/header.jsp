@@ -87,11 +87,11 @@
                         <%}%>
                         <li id="menu-item-5"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5">
-                            <a href="#">Forums</a>
+                            <a href="<%=WebConstant.getLocalHost()%>/about/">Liên hệ</a>
                         </li>
                         <li id="menu-item-7"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7">
-                            <a href="#">Contact</a>
+                            <a href="<%=WebConstant.getLocalHost()%>/about/">Giới thiệu</a>
                         </li>
                         <%if (users != null) {%>
                         <li id="menu-item-4"
