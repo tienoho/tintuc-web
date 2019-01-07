@@ -269,7 +269,7 @@
                 <section class="block-wrap blog" data-id="3">
                     <div class="block-head cat-text-11">
                         <h3 class="heading">
-                            <a href="category/beauty/index.html">From Beauty</a>
+                            <a href="">From Beauty</a>
                         </h3>
                     </div>
                     <div class="block-content">
@@ -277,18 +277,18 @@
                             <div class="column one-third">
                                 <article
                                         class="post-78 post type-post status-publish format-standard has-post-thumbnail category-beauty tag-culture tag-fashion tag-fitness tag-leisure tag-lifestyle">
-                                    <a href="2017/01/08/l-a-s-6-coolest-haircuts-how-to-style-them-in-shortest-time/index.html"
+                                    <a href=""
                                        class="image-link">
                                         <img width="233" height="300"
-                                             src="images/18528837284_effa27b50a_o-233x300.jpg"
+                                             src="<%=WebConstant.getLocalHost()%>/upload/images/18528837284_effa27b50a_o-233x300.jpg"
                                              class="image wp-post-image" alt="18528837284_effa27b50a_o"
                                              title="L.A.&#8217;s 6 Coolest Haircuts — &#038; How To Style Them In Shortest Time"
-                                             srcset="images/18528837284_effa27b50a_o-233x300.jpg 233w, images/18528837284_effa27b50a_o.jpg 691w, images/18528837284_effa27b50a_o-233x300@2x.jpg 466w"
+                                             srcset="<%=WebConstant.getLocalHost()%>/upload/images/18528837284_effa27b50a_o-233x300.jpg 233w, <%=WebConstant.getLocalHost()%>/upload/images/18528837284_effa27b50a_o.jpg 691w"
                                              sizes="(max-width: 233px) 100vw, 233px"/>
                                     </a>
                                     <div class="overlay">
                                         <h2 class="post-title">
-                                            <a href="2017/01/08/l-a-s-6-coolest-haircuts-how-to-style-them-in-shortest-time/index.html"
+                                            <a href="="
                                                title="L.A.&#8217;s 6 Coolest Haircuts — &#038; How To Style Them In Shortest Time">L.A.&#8217;s
                                                 6 Coolest Haircuts — &#038; How To Style Them In Shortest Time</a>
                                         </h2>
@@ -303,19 +303,19 @@
                             <div class="column one-third">
                                 <article
                                         class="post-82 post type-post status-publish format-standard has-post-thumbnail category-beauty tag-culture tag-fashion tag-fitness tag-leisure tag-lifestyle">
-                                    <a href="2017/01/08/wear-this-colorful-eye-look-to-your-next-party-be-awesome/index.html"
+                                    <a href=""
                                        class="image-link">
                                         <img width="233" height="300"
-                                             src="images/FreeGreatPicture.com-26872-fashion-model-233x300.jpg"
+                                             src="<%=WebConstant.getLocalHost()%>/upload/images/FreeGreatPicture.com-26872-fashion-model-233x300.jpg"
                                              class="image wp-post-image"
                                              alt="FreeGreatPicture.com-26872-fashion-model"
                                              title="Wear This Colorful Eye Look To Your Next Party &#038; Be Awesome"
-                                             srcset="images/FreeGreatPicture.com-26872-fashion-model-233x300.jpg 233w, images/FreeGreatPicture.com-26872-fashion-model-233x300@2x.jpg 466w"
+                                             srcset="<%=WebConstant.getLocalHost()%>/upload/images/FreeGreatPicture.com-26872-fashion-model-233x300.jpg 233w"
                                              sizes="(max-width: 233px) 100vw, 233px"/>
                                     </a>
                                     <div class="overlay">
                                         <h2 class="post-title">
-                                            <a href="2017/01/08/wear-this-colorful-eye-look-to-your-next-party-be-awesome/index.html"
+                                            <a href=""
                                                title="Wear This Colorful Eye Look To Your Next Party &#038; Be Awesome">Wear
                                                 This Colorful Eye Look To Your Next Party &#038; Be Awesome</a>
                                         </h2>
@@ -330,18 +330,18 @@
                             <div class="column one-third">
                                 <article
                                         class="post-84 post type-post status-publish format-standard has-post-thumbnail category-beauty tag-culture tag-fashion tag-fitness tag-leisure tag-lifestyle">
-                                    <a href="2017/01/08/exclusive-jane-allure-shows-us-the-new-foam-dry-shampoo/index.html"
+                                    <a href=""
                                        class="image-link">
                                         <img width="233" height="300"
-                                             src="images/1shutterstock_66981412-233x300.jpg"
+                                             src="<%=WebConstant.getLocalHost()%>/upload/images/1shutterstock_66981412-233x300.jpg"
                                              class="image wp-post-image" alt="1shutterstock_66981412"
                                              title="Exclusive: Jane Allure Shows Us The New Foam Dry Shampoo"
-                                             srcset="images/1shutterstock_66981412-233x300.jpg 233w, images/1shutterstock_66981412-777x1000.jpg 777w, images/1shutterstock_66981412-233x300@2x.jpg 466w, images/1shutterstock_66981412-777x1000@2x.jpg 1554w"
+                                             srcset="<%=WebConstant.getLocalHost()%>/upload/images/1shutterstock_66981412-233x300.jpg 233w, <%=WebConstant.getLocalHost()%>/upload/images/1shutterstock_66981412-777x1000.jpg 777w"
                                              sizes="(max-width: 233px) 100vw, 233px"/>
                                     </a>
                                     <div class="overlay">
                                         <h2 class="post-title">
-                                            <a href="2017/01/08/exclusive-jane-allure-shows-us-the-new-foam-dry-shampoo/index.html"
+                                            <a href=""
                                                title="Exclusive: Jane Allure Shows Us The New Foam Dry Shampoo">Exclusive:
                                                 Jane Allure Shows Us The New Foam Dry Shampoo</a>
                                         </h2>
