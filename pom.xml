@@ -10,7 +10,7 @@
     <properties>
         <jsp.api.version>2.3.1</jsp.api.version>
         <jsp.servlet.version>3.1.0</jsp.servlet.version>
-        <jsp.mysql.version>5.1.6</jsp.mysql.version>
+        <jsp.mysql.version>8.0.16</jsp.mysql.version>
     </properties>
     <dependencies>
         <dependency>
